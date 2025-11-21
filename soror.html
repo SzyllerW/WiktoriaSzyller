@@ -152,8 +152,8 @@
       transform: translateX(20px);
       transition: 0.3s ease;
       pointer-events: none;
-      border: 1px solid #333;
-      box-shadow: 0 0 12px rgba(255,0,0,0.3);
+      border: none;
+      box-shadow: none;
     }
 
     .code-row:hover .code-desc {
@@ -176,9 +176,12 @@
 <a href="https://szyllerw.github.io/WiktoriaSzyller/" class="back">← Back to Portfolio</a>
 
 <!-- HERO -->
-<div class="hero-header">
-  <div class="hero-title-block">
+<div class="hero-header" style="justify-content:center; text-align:center; padding:60px 0;">
+  <div class="hero-title-block" style="align-items:center;">
     <div class="hero-title">SOROR</div>
+    <div class="subtitle">Boss Rush</div>
+  </div>
+</div>
     <div class="subtitle">Boss Rush</div>
   </div>
 
@@ -199,9 +202,10 @@
   </div>
 
   <!-- VIDEO WITH CROP -->
-  <div class="video-crop">
-    <video src="videos/sororvideo.mp4" controls></video>
-  </div>
+  <div style="text-align:center; margin:40px 0;">
+  <video src="videos/sororvideo.mp4" controls style="max-width:100%; height:auto; border-radius:12px;">
+  </video>
+</div>
 
   <!-- CODE HIGHLIGHTS TITLE -->
   <h2 class="red-title">Code Highlights</h2>
@@ -209,7 +213,7 @@
   <!-- CODE IMAGES -->
   <div class="code-wrapper">
 
-    <div class="code-row">
+    <div class="code-row" style="justify-content:flex-start;">
       <img src="images/capsuledetection.png" class="code-img">
       <div class="code-desc">
         Sub-stepped melee collision: the sword’s movement is sampled multiple
@@ -217,7 +221,7 @@
       </div>
     </div>
 
-    <div class="code-row reverse">
+    <div class="code-row reverse" style="justify-content:flex-end;">
       <img src="images/blending.png" class="code-img">
       <div class="code-desc">
         Adaptive rotation blending for readable attack telegraphs and smooth timing transitions.
