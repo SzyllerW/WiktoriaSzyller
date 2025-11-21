@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Soror – Project Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css"> <!-- jeśli masz osobny CSS -->
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: url("images/background.avif") repeat;
+      margin: 0;
+      padding: 0;
+      color: #111827;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #111;
+    }
+    pre {
+      background: #f3f4f6;
+      padding: 12px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <a class="back" href="index.html">← Back to Portfolio</a>
+
+    <h1>Soror – Boss Rush Game</h1>
+    <img src="images/soror.png" alt="Soror logo">
+
+    <h2>About the Project</h2>
+    <p>
+      Soror is a boss-rush action game focusing on advanced enemy AI,
+      parry mechanics, and telegraphed patterns. Each encounter builds
+      around timing, positioning, and reading the boss.
+    </p>
+
+    <h2>Gameplay Features</h2>
+    <ul>
+      <li>Advanced boss AI with multiple phases</li>
+      <li>Area-of-effect telegraphs (AOE)</li>
+      <li>Parry-based combat system</li>
+      <li>Fast iteration tools for attack patterns</li>
+    </ul>
+
+    <h2>Sample Code</h2>
+    <pre>
+// Example: Parry Window Timing
+
+if (isParrying && bossAttack.InParryWindow)
+{
+    StaggerBoss();
+    PlayParryEffect();
+}
+    </pre>
+
+    <h2>Screenshots</h2>
+    <img src="images/soror-gameplay1.png" alt="Gameplay screenshot">
+    <img src="images/soror-gameplay2.png" alt="Gameplay screenshot">
+
+  </div>
+
+</body>
+</html>
