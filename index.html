@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Wiktoria Szyller – Unity Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Wiktoria Szyller – Unity Developer. Game mechanics programming, C#, C++, Unity, GitHub, Jira, and more.">
+  <meta name="description" content="Portfolio of Unity Developer – gameplay programming, C#, C++, mechanics, prototyping, and game systems.">
   <style>
     :root {
       --brown: #6b4e3d;
@@ -39,8 +39,21 @@
       padding: 20px;
     }
 
-    h1, h2, h3 {
+    h1 {
+      margin: 0;
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--brown-dark);
+    }
+
+    h2 {
       margin: 0 0 12px;
+      color: var(--brown-dark);
+      font-size: 28px;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
       color: var(--brown-dark);
     }
 
@@ -61,17 +74,13 @@
       flex-wrap: wrap;
     }
 
-    .header-title {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
     .subtitle {
       font-size: 14px;
       color: var(--gray);
+      margin-top: 4px;
     }
 
-    /* HERO SECTION */
+    /* HERO */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -84,21 +93,23 @@
       color: var(--gray);
     }
 
-    .skills {
+    /* SKILLS */
+    .skills-scroll {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 6px;
     }
 
     .skill {
       background: var(--gray-light);
-      padding: 8px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
       font-weight: 600;
-      font-size: 14px;
-      color: var(--brown-dark);
+      white-space: nowrap;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      font-size: 14px;
     }
 
     /* PROJECTS */
@@ -106,43 +117,44 @@
       padding: 40px 0;
     }
 
-    .project-grid {
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 24px;
     }
 
     .project {
-      background: var(--white);
-      border: 1px solid var(--gray-light);
+      position: relative;
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
       overflow: hidden;
-      transition: transform 0.2s;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-light);
+      background: var(--white);
+      transition: transform 0.3s;
     }
 
     .project:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
     }
 
     .thumb {
+      height: 200px;
       background: linear-gradient(135deg, #d7ccc8, #efebe9);
-      height: 160px;
     }
 
-    .project-info {
-      padding: 16px;
+    .project-hover {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(75, 55, 43, 0.92);
+      color: var(--white);
+      transition: bottom 0.3s ease;
     }
 
-    .project-info h4 {
-      margin: 0;
-      color: var(--brown-dark);
-    }
-
-    .project-info p {
-      font-size: 14px;
-      color: var(--gray);
-      margin: 6px 0 0;
+    .project:hover .project-hover {
+      bottom: 0;
     }
 
     /* CONTACT */
@@ -165,9 +177,8 @@
     }
 
     @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
+      h1 { font-size: 32px; }
+      .hero { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -176,8 +187,8 @@
   <header>
     <div class="container header-content">
       <div>
-        <div class="header-title">Wiktoria Szyller</div>
-        <div class="subtitle">Unity Developer • Game Mechanics Programmer</div>
+        <h1>Wiktoria Szyller</h1>
+        <div class="subtitle">Unity Developer • Gameplay Programmer</div>
       </div>
       <nav>
         <a href="#projects">Projects</a> | 
@@ -190,24 +201,24 @@
 
     <section class="hero">
       <div>
-        <h2>Hello!</h2>
+        <h2>Hello World!</h2>
         <p class="hero-text">
-          I’m <strong>Wiktoria Szyller</strong>, a Unity Developer focused on creating engaging and polished game mechanics.
-          I enjoy clean code architecture, gameplay feel, and teamwork across creative projects.
+          Unity developer focused on gameplay programming, clean mechanics, and polished game feel.  
+          Experienced with academic game-dev training, studio practice, and collaborative prototype development.  
+          Passionate about turning ideas into functional systems and building games that *feel* good to play.
         </p>
 
         <h3>Skills</h3>
-        <div class="skills">
+        <div class="skills-scroll">
           <div class="skill">Unity</div>
-          <div class="skill">GitHub</div>
-          <div class="skill">Visual Studio 2022</div>
-          <div class="skill">Jira</div>
-          <div class="skill">Trello</div>
-          <div class="skill">Miro</div>
           <div class="skill">C#</div>
           <div class="skill">C++</div>
+          <div class="skill">GitHub</div>
+          <div class="skill">Fork</div>
+          <div class="skill">Visual Studio 2022</div>
+          <div class="skill">Miro</div>
+          <div class="skill">Trello</div>
           <div class="skill">SQL (Basics)</div>
-          <div class="skill">3ds Max (Basics)</div>
         </div>
       </div>
 
@@ -218,52 +229,32 @@
 
     <section id="projects" class="projects">
       <h2>Projects</h2>
-      <div class="project-grid">
+
+      <div class="projects-grid">
+
         <div class="project">
           <div class="thumb"></div>
-          <div class="project-info">
-            <h4>Soror – Boss Rush</h4>
-            <p>Action game focused on challenging boss mechanics.</p>
+          <div class="project-hover">
+            <h3>Soror – Boss Rush</h3>
+            <p>Action-focused boss encounters, mechanics scripting, combat logic, and prototype iteration.</p>
           </div>
         </div>
+
         <div class="project">
           <div class="thumb"></div>
-          <div class="project-info">
-            <h4>Zoonauts – Platformer</h4>
-            <p>2D adventure platformer with unique character abilities.</p>
+          <div class="project-hover">
+            <h3>Zoonauts – Platformer</h3>
+            <p>2D platformer with multiple characters, each with unique mechanics and movement systems.</p>
           </div>
         </div>
+
         <div class="project">
           <div class="thumb"></div>
-          <div class="project-info">
-            <h4>Spacetaker – Multiplayer</h4>
-            <p>Online multiplayer project developed in Unity.</p>
+          <div class="project-hover">
+            <h3>Spacetaker – Multiplayer</h3>
+            <p>Online multiplayer prototype involving ship control, events, and synchronized game logic.</p>
           </div>
         </div>
-        <!-- Placeholder projects -->
-        <div class="project"><div class="thumb"></div><div class="project-info"><h4>Project 4</h4><p>Coming soon...</p></div></div>
-        <div class="project"><div class="thumb"></div><div class="project-info"><h4>Project 5</h4><p>Coming soon...</p></div></div>
-        <div class="project"><div class="thumb"></div><div class="project-info"><h4>Project 6</h4><p>Coming soon...</p></div></div>
-        <div class="project"><div class="thumb"></div><div class="project-info"><h4>Project 7</h4><p>Coming soon...</p></div></div>
-        <div class="project"><div class="thumb"></div><div class="project-info"><h4>Project 8</h4><p>Coming soon...</p></div></div>
-        <div class="project"><div class="thumb"></div><div class="project-info"><h4>Project 9</h4><p>Coming soon...</p></div></div>
-      </div>
-    </section>
 
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <div>📞 +48 517 243 415</div>
-        <div>📧 <a href="mailto:szyllerwiktoria@gmail.com">szyllerwiktoria@gmail.com</a></div>
-        <div>💻 <a href="https://github.com/SzyllerW" target="_blank">github.com/SzyllerW</a></div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2025 Wiktoria Szyller – All rights reserved.
-  </footer>
-
-</body>
-</html>
+        <!-- Remaining placeholders -->
+        <div class="project"><div class="thumb"></div><div class="project-hover"><h3>Project 4</h3><p>Comin
