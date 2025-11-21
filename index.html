@@ -4,207 +4,139 @@
   <meta charset="utf-8">
   <title>Wiktoria Szyller – Unity Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Unity Developer – gameplay programming, clean mechanics, and polished game feel.">
-
   <style>
-    :root {
-      --bg: #f3f4f6;
-      --card: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --shadow: 0 10px 25px rgba(0,0,0,0.07);
-      --radius: 16px;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      margin: 0;
-      background: url("images/background.avif") no-repeat center/cover;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      font-family: Segoe UI, sans-serif;
+      background:#f3f4f6;
+      margin:0;
+      color:#111827;
     }
 
     .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
+      max-width:1100px;
+      margin:auto;
+      padding:20px;
     }
 
-    h1 { margin: 0; font-size: 40px; font-weight: 800; }
-    h2 { margin: 0 0 12px; font-size: 28px; }
-    h3 { margin: 20px 0 8px; font-size: 20px; }
-    a { color: var(--text); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    h1 { font-size:40px; margin:0; }
+    h2 { font-size:28px; }
+    h3 { font-size:20px; }
 
-    /* HEADER */
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 4px;
+    header {
+      background:white;
+      border-bottom:1px solid #ddd;
+      position:sticky;
+      top:0;
+      z-index:10;
     }
 
     nav a {
-      font-size: 14px;
-      margin-left: 8px;
+      text-decoration:none;
+      margin-left:10px;
+      color:#111;
     }
+    nav a:hover { text-decoration:underline; }
 
-    /* HERO SECTION */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 24px;
-      padding: 40px 0;
-    }
-
-    .hero-text {
-      font-size: 17px;
-      color: var(--muted);
-    }
+    /* HERO */
+    .hero { padding:40px 0; }
 
     .hello-code {
-      display: inline-block;
-      background: #3b3b3b;
-      color: #f9fafb;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-family: "Consolas", monospace;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
-
-    .skills-scroll {
-      display: flex;
-      gap: 12px;
-      margin-top: 12px;
-      overflow-x: auto;
-    }
-
-    .skill {
-      background: var(--card);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-      white-space: nowrap;
-    }
-
-    .hero img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      object-fit: cover;
+      background:#3b3b3b;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      font-family:Consolas;
+      display:inline-block;
+      margin-bottom:12px;
     }
 
     /* PROJECT CARDS */
-    .featured-projects { margin-top: 10px; }
+    .featured-projects { margin-top:20px; }
 
     .featured-list {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      margin-top: 16px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      padding:0;
     }
 
     .project-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding: 22px;
-      gap: 22px;
-      background: var(--card);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      color: inherit;
-      transition: 0.35s ease;
+      background:white;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      padding:18px;
+      border-radius:16px;
+      border:1px solid #ddd;
+      text-decoration:none;
+      color:#111;
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+      margin-left:-20px;
+      margin-right:-20px;
+      transition:0.25s;
     }
 
-    .project-card.left { transform: translateX(-70px); }
-    .project-card.right { transform: translateX(70px); }
-
-    .project-card:hover { transform: translateX(0); }
+    .project-card:hover {
+      box-shadow:0 8px 22px rgba(0,0,0,0.15);
+      transform:translateX(3px);
+    }
 
     .project-thumb img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
+      width:100%;
+      border-radius:12px;
     }
 
-    .project-meta-title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 4px;
+    /* EXPERIENCE */
+    .experience-section {
+      margin-top:60px;
+      padding-left:10px;
     }
 
-    .project-meta-sub {
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 8px;
-      text-transform: uppercase;
+    .experience-list li {
+      margin-bottom:6px;
     }
 
-    /* CONTACT SECTION */
+    /* CONTACT */
     #contact {
-      padding: 60px 0;
-      display: flex;
-      justify-content: flex-end; /* bardziej w prawo */
+      padding:60px 0;
+      display:flex;
+      justify-content:flex-end;
     }
 
     .contact-box {
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(4px);
-      padding: 35px 42px;
-      border-radius: 14px;
-      width: 380px;
-      margin-right: 100px; /* jeszcze bardziej w prawo */
-      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+      background:rgba(255,255,255,0.55);
+      padding:30px 40px;
+      border-radius:14px;
+      box-shadow:0 6px 25px rgba(0,0,0,0.15);
+      width:380px;
+      margin-right:40px;
     }
 
     .github-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 22px;
-      background: #3b3b3b;
-      color: white;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 22px;
+      background:#3b3b3b;
+      color:white;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.2s;
     }
 
-    .github-btn:hover { background: #4c4c4c; }
+    .github-btn:hover {
+      background:#4c4c4c;
+    }
 
   </style>
 </head>
 
 <body>
-
 <header>
-  <div class="container header-content">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
     <div>
       <h1>Wiktoria Szyller</h1>
       <div class="subtitle">Unity Developer • Gameplay Programmer</div>
     </div>
-
     <nav>
       <a href="#projects">Projects</a> |
       <a href="#contact">Contact</a>
@@ -214,121 +146,111 @@
 
 <main class="container">
 
-  <!-- HERO -->
-<section class="hero">
-  <div>
+  <!-- HERO SECTION -->
+  <section class="hero">
     <div class="hello-code">Debug.Log("Hello World!");</div>
 
-    <p class="hero-text">
+    <p>
       I'm a Unity developer focused on gameplay programming, clean mechanics, and polished game feel.
       Experienced with academic game-dev training, studio practice, and collaborative prototype development.
       Passionate about turning ideas into functional systems and building games that <em>feel</em> good to play.
     </p>
 
     <h3>Skills</h3>
-    <div class="skills-scroll">
-      <div class="skill">Unity</div>
-      <div class="skill">C#</div>
-      <div class="skill">C++</div>
-      <div class="skill">GitHub</div>
-      <div class="skill">Fork</div>
-      <div class="skill">Visual Studio Code</div>
-      <div class="skill">Miro</div>
-      <div class="skill">Trello</div>
-      <div class="skill">SQL (Basics)</div>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <h3 style="margin-top:30px;">Experience</h3>
-    <div style="
-      background: var(--card);
-      padding: 18px 22px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      margin-top: 12px;
-      max-width: 700px;
-    ">
-      <strong>Simplicity Games – Unity Developer Intern</strong>
-      <div style="color: var(--muted); font-size:14px; margin-bottom:8px;">
-        Nov 2025 – Apr 2026
-      </div>
-
-      <ul style="padding-left:18px; margin:0; color:var(--muted); font-size:15px; line-height:1.55;">
-        <li>Developed gameplay features and internal Unity tools for production workflows.</li>
-        <li>Implemented mechanics, UI logic and optimizations following studio coding guidelines.</li>
-        <li>Tested and debugged features for <em>Farm Renovator</em> across multiple Steam branches.</li>
-        <li>Prepared reproducible bug reports and collaborated with designers & programmers on fixes.</li>
-        <li>Worked with Git branches, task boards and daily development pipelines.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
+    <ul style="list-style:none;padding-left:0;line-height:1.6;">
+      <li>• Unity</li>
+      <li>• C#</li>
+      <li>• C++</li>
+      <li>• GitHub</li>
+      <li>• Fork</li>
+      <li>• Visual Studio Code</li>
+      <li>• Miro</li>
+      <li>• Trello</li>
+      <li>• SQL (Basics)</li>
+    </ul>
+  </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="featured-projects">
+  <section class="featured-projects" id="projects">
     <h2>Projects</h2>
 
     <div class="featured-list">
 
-      <a href="soror.html" class="project-card left">
+      <!-- Soror -->
+      <a href="soror.html" class="project-card">
         <div class="project-thumb">
-          <img src="images/soror.png">
+          <img src="images/soror.png" alt="Soror">
         </div>
         <div>
-          <div class="project-meta-sub">Boss Rush | Unity</div>
-          <div class="project-meta-title">Soror</div>
-          <p>Boss-rush action game with advanced AI, readable telegraphs, AOE patterns & posture system.</p>
+          <h3>Soror</h3>
+          <p>Boss-rush action game with advanced boss AI and parry-based combat.</p>
         </div>
       </a>
 
-      <a href="#" class="project-card right">
+      <!-- Zoonauts -->
+      <a href="#" class="project-card">
         <div>
-          <div class="project-meta-sub">2D Platformer | Unity</div>
-          <div class="project-meta-title">Zoonauts</div>
-          <p>Cute-but-tough platformer about animal astronauts with unique movement abilities.</p>
+          <h3>Zoonauts</h3>
+          <p>2D platformer starring animal astronauts with unique abilities.</p>
         </div>
         <div class="project-thumb">
-          <img src="images/zoonatus.png">
+          <img src="images/zoonatus.png" alt="Zoonauts">
         </div>
       </a>
 
-      <a href="#" class="project-card left">
+      <!-- Spacetaker -->
+      <a href="#" class="project-card">
         <div class="project-thumb">
-          <img src="images/spacetaker.png">
+          <img src="images/spacetaker.png" alt="Spacetaker">
         </div>
         <div>
-          <div class="project-meta-sub">Multiplayer | Unity</div>
-          <div class="project-meta-title">Spacetaker</div>
-          <p>Online multiplayer prototype focused on ships, planets and synchronised events.</p>
+          <h3>Spacetaker</h3>
+          <p>Multiplayer prototype focused on cooperative ship defence.</p>
         </div>
+      </a>
+
+      <!-- Empty placeholders -->
+      <a href="#" class="project-card">
+        <div><h3>Project 4</h3><p>Coming soon.</p></div>
+        <div></div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div></div>
+        <div><h3>Project 5</h3><p>Coming soon.</p></div>
       </a>
 
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
+  <section class="experience-section">
+    <h2>Experience</h2>
+
+    <h3>Simplicity Games – Unity Developer Intern</h3>
+    <ul class="experience-list">
+      <li>Developed gameplay features and internal Unity tools.</li>
+      <li>Implemented mechanics, UI logic, and optimizations.</li>
+      <li>Tested and debugged features for <em>Farm Renovator</em> across Steam branches.</li>
+      <li>Created bug reports and collaborated with designers/programmers.</li>
+      <li>Worked daily with Git, task boards, and studio pipelines.</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box">
+      <h2>Contact</h2>
+      <p><strong>Wiktoria Szyller</strong></p>
+      <p>📞 +48 517 243 415</p>
+      <p>✉️ <a href="mailto:szyllerwiktoria@gmail.com">szyllerwiktoria@gmail.com</a></p>
+      <a href="https://github.com/SzyllerW" target="_blank" class="github-btn">View GitHub →</a>
+    </div>
+  </section>
+
 </main>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-box">
-    <h2>Contact</h2>
-
-    <strong>Wiktoria Szyller</strong><br><br>
-
-    📞 +48 517 243 415<br>
-    ✉️ <a href="mailto:szyllerwiktoria@gmail.com">szyllerwiktoria@gmail.com</a>
-
-    <a href="https://github.com/SzyllerW"
-       class="github-btn"
-       target="_blank">
-      View GitHub →
-    </a>
-  </div>
-</section>
-
-<footer style="text-align:center; padding:20px; color:#6b7280;">
+<footer style="text-align:center;padding:20px;color:#555;">
   © 2025 Wiktoria Szyller – All rights reserved.
 </footer>
 
