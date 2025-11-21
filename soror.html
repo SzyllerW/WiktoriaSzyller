@@ -8,24 +8,24 @@
   <style>
     body {
       font-family: "Segoe UI", sans-serif;
-      background: #1f1f1f; /* ciemno szare tło */
+      background: #1b1b1b; /* ciemne tło */
       margin: 0;
       padding: 0;
-      color: #f5f5f5; /* jasny tekst */
+      color: #f1f1f1;
     }
 
     .container {
       max-width: 900px;
       margin: 40px auto;
       padding: 20px;
-      background: #2a2a2a; /* trochę jaśniejsze szarości dla sekcji */
+      background: #262626;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
 
     h1 {
-      margin-top: 0;
       font-size: 34px;
+      margin-top: 0;
       color: #ffffff;
     }
 
@@ -35,8 +35,8 @@
       color: #ffffff;
     }
 
-    p, li {
-      color: #d7d7d7;
+    p {
+      color: #d2d2d2;
       line-height: 1.6;
     }
 
@@ -44,58 +44,76 @@
       max-width: 100%;
       border-radius: 12px;
       margin: 20px 0;
-      display: block;
     }
 
     .back {
       display: inline-block;
+      color: #ccc;
       margin-bottom: 20px;
-      color: #e0e0e0;
-      font-size: 15px;
     }
 
     .back:hover {
       text-decoration: underline;
     }
 
-    .highlight-title {
-      font-size: 18px;
-      margin-top: 16px;
-      margin-bottom: 6px;
-      color: #fff;
-      font-weight: 600;
+
+    /* ————— FLIP CARDS ————— */
+
+    .flip-container {
+      perspective: 1200px;
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto;
     }
 
-    .code-box {
-  position: relative;
-  display: inline-block;
-  margin: 20px 0;
-  cursor: pointer;
-}
+    .flip-card {
+      width: 100%;
+      height: 280px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.7s ease;
+      cursor: pointer;
+    }
 
-.tooltip {
-  visibility: hidden;
-  opacity: 0;
-  width: 260px;
-  background-color: #000000cc;
-  color: #fff;
-  text-align: left;
-  padding: 12px 14px;
-  border-radius: 8px;
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.25s ease;
-  font-size: 14px;
-  line-height: 1.4;
-  pointer-events: none;
-}
+    .flip-container:hover .flip-card {
+      transform: rotateY(180deg);
+    }
 
-.code-box:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .flip-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flip-back {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      text-align: center;
+      border: 1px solid #333;
+      line-height: 1.5;
+    }
+
+    video {
+      border-radius: 12px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
   </style>
 </head>
 
@@ -106,50 +124,78 @@
     <a class="back" href="index.html">← Back to Portfolio</a>
 
     <h1>Soror – Boss Rush Project</h1>
+
     <img src="images/soror.png" alt="Soror logo">
 
     <h2>About the Project</h2>
     <p>
-      <strong>Soror</strong> is a boss-rush passion project created as part of my bachelor's thesis.
-      The game was developed by a <strong>4-person team</strong>, where I served as the 
-      <strong>enemy AI and combat systems programmer</strong>.
+      <strong>Soror</strong> is a boss-rush action game created as a 
+      <strong>passion project for my bachelor's thesis</strong>.
+      The game was developed by a <strong>4-person team</strong>, where my role focused on:
     </p>
+
+    <ul>
+      <li>programming enemy AI and combat logic</li>
+      <li>implementing AOE patterns & telegraphs</li>
+      <li>creating a custom Unity Editor window to align AOE shapes to floors and level geometry</li>
+    </ul>
 
     <p>
-      I implemented the entire boss behaviour architecture, advanced melee collision detection,
-      attack windows, posture/stagger logic, and the AOE telegraph system.
-      Additionally, I built a <strong>custom Unity Editor window</strong> for placing and 
-      aligning AOE telegraphs to floors and level geometry, improving workflow and designer iteration speed.
+      My work centered around gameplay feel, boss behaviours, attack pacing, and responsive parry windows.
     </p>
 
 
-    <!-- SAMPLE CODE IMAGES -->
+    <!-- ———————————————— VIDEO ———————————————— -->
 
-<h2>Code Highlights</h2>
+    <h2>Gameplay Video</h2>
 
-<!-- Capsule Detection -->
-<div class="code-box">
-  <img src="images/capsuledetection.png" alt="Capsule detection code">
+    <video controls>
+      <source src="videos/ssororvideo.mkv" type="video/x-matroska">
+      Your browser does not support the video tag.
+    </video>
 
-  <div class="tooltip">
-    Sub-stepped melee collision: the sword’s motion is sampled multiple
-    times per frame using capsule checks along the entire blade path.
-    This prevents tunneling and makes hits accurate at any framerate.
+
+
+    <!-- ———————————————— CODE HIGHLIGHTS ———————————————— -->
+
+    <h2>Code Highlights</h2>
+
+    <!-- Flip Card #1 -->
+    <div class="flip-container">
+      <div class="flip-card">
+
+        <div class="flip-front">
+          <img src="images/capsuledetection.png" alt="Capsule Detection Code">
+        </div>
+
+        <div class="flip-back">
+          Sub-stepped melee collision: the sword’s motion is sampled
+          multiple times per frame using capsule checks along the blade arc,
+          preventing tunneling and ensuring precise hit detection.
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Flip Card #2 -->
+    <div class="flip-container">
+      <div class="flip-card">
+
+        <div class="flip-front">
+          <img src="images/blending.png" alt="Rotation Blending Code">
+        </div>
+
+        <div class="flip-back">
+          Adaptive rotation blending: fast anticipation turn-in followed
+          by slower tracking during the attack window, creating readable
+          but dangerous boss attack arcs.
+        </div>
+
+      </div>
+    </div>
+
   </div>
-</div>
 
-<!-- Rotation Blending -->
-<div class="code-box">
-  <img src="images/blending.png" alt="Rotation blending code">
-
-  <div class="tooltip">
-    Adaptive rotation blending: the boss rotates quickly in anticipation,
-    then slows during the strike window, making attacks readable yet
-    threatening and improving combat clarity.
-  </div>
-</div>
-
-</div> <!-- zamknięcie .container -->
 </body>
 </html>
 
