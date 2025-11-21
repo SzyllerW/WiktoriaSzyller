@@ -29,33 +29,41 @@
       font-size: 16px;
     }
 
+
     /* ----------------- HERO HEADER ----------------- */
 
     .hero-header {
       position: relative;
       width: 100%;
-      height: 380px;
+      height: 420px;
       overflow: hidden;
       border-bottom: 2px solid #3a3a3a;
+      background: black;
     }
 
+    /* Główne zdjęcie */
     .hero-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.50);
+      height: auto;
+      transform: translate(-50%, -50%);
+      border: 4px solid black; /* czarna ramka */
+      box-shadow: 0 0 60px rgba(255,0,0,0.6); /* czerwona poświata */
     }
 
+    /* Czerwone płomienie */
     .hero-overlay {
       pointer-events: none;
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 20% 80%, rgba(255,0,0,0.18) 0%, transparent 55%),
-        radial-gradient(circle at 80% 25%, rgba(255,40,0,0.22) 0%, transparent 60%),
-        radial-gradient(circle at 60% 90%, rgba(255,30,0,0.14) 0%, transparent 70%);
+        radial-gradient(circle at 20% 80%, rgba(255,0,0,0.25) 0%, transparent 55%),
+        radial-gradient(circle at 80% 25%, rgba(255,25,0,0.35) 0%, transparent 60%),
+        radial-gradient(circle at 60% 90%, rgba(255,40,0,0.22) 0%, transparent 70%);
       mix-blend-mode: screen;
-      filter: blur(35px);
+      filter: blur(55px);
     }
 
     .hero-title {
@@ -69,8 +77,8 @@
       text-transform: uppercase;
       color: #fff;
       text-shadow:
-        0 0 12px rgba(255,0,0,0.6),
-        0 0 25px rgba(255,0,0,0.4);
+          0 0 12px rgba(255,0,0,0.6),
+          0 0 25px rgba(255,0,0,0.4);
     }
 
     .hero-title .subtitle {
@@ -80,12 +88,12 @@
       letter-spacing: 2px;
       color: #ffcccc;
       text-shadow:
-        0 0 12px rgba(255,0,0,0.5),
-        0 0 20px rgba(255,0,0,0.3);
+          0 0 12px rgba(255,0,0,0.5),
+          0 0 20px rgba(255,0,0,0.3);
     }
 
 
-    /* ----------------- CONTENT ----------------- */
+    /* -------------- CONTENT -------------- */
 
     .container {
       max-width: 1000px;
@@ -93,7 +101,6 @@
       margin: auto;
     }
 
-    /* ABOUT BOX */
     .about-box {
       background: var(--card);
       padding: 24px 28px;
@@ -107,13 +114,25 @@
       margin-top: 0;
     }
 
-    /* VIDEO */
-    video {
+
+    /* ----------------- VIDEO CROP ----------------- */
+
+    .video-crop {
       width: 100%;
-      margin-top: 30px;
+      height: 400px; /* docelowa wysokość */
+      overflow: hidden;
       border-radius: 12px;
       border: 2px solid #333;
+      margin-top: 30px;
     }
+
+    .video-crop video {
+      width: 120%;          /* powiększenie do cropowania */
+      height: auto;
+      margin-left: -10%;    /* 10% obcięte po bokach */
+      margin-top: -5%;      /* 5% obcięte góra */
+    }
+
 
     /* ----------------- CODE HIGHLIGHTS ----------------- */
 
@@ -163,7 +182,6 @@
       transform: translateX(0px);
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 40px;
@@ -173,61 +191,66 @@
 
   </style>
 </head>
+
 <body>
 
 <a href="../index.html" class="back">← Back to Portfolio</a>
 
-<!-- HERO HEADER -->
+<!-- HERO -->
 <div class="hero-header">
   <div class="hero-overlay"></div>
-  <img src="images/Zrzut ekranu 2025-11-21 194113.png" class="hero-img" alt="Soror header">
+
+  <!-- PODMIEŃ TEN PLIK NA SWÓJ (z repo) -->
+  <img src="images/soror-header.png" class="hero-img" alt="Soror header">
+
   <div class="hero-title">
     SOROR
     <div class="subtitle">Boss Rush</div>
   </div>
 </div>
 
+
 <div class="container">
 
-  <!-- ABOUT BOX -->
+  <!-- ABOUT -->
   <div class="about-box">
     <h2>About the Project</h2>
     <p>
-      Soror is a passion-driven <strong>boss rush</strong> created as part of my bachelor’s thesis.
-      Developed by a 4-person team, where I serve as the <strong>gameplay & AI programmer</strong>.
-      I designed the enemy AI, posture system, precise melee detection, AOE logic,
-      and created a <strong>custom Unity Editor Window</strong> for aligning AOE patterns to arena geometry.
+      Soror is a passion-driven <strong>boss rush</strong> created as part of my bachelor's thesis.
+      Developed by a 4-person team, where I serve as the <strong>AI & gameplay programmer</strong>.
+      I created the enemy behaviour logic, posture system, AOE mechanics,
+      and built a <strong>custom Unity Editor Window</strong> for aligning AOE patterns to the arena.
     </p>
   </div>
 
-  <!-- VIDEO -->
-  <video controls>
-    <source src="videos/sororvideo.mp4" type="video/mp4">
-    Your browser does not support video playback.
-  </video>
+
+  <!-- VIDEO WITH CROP -->
+  <div class="video-crop">
+    <video src="videos/sororvideo.mp4" controls></video>
+  </div>
+
 
   <!-- CODE HIGHLIGHTS -->
   <h2 style="margin-top: 40px;">Code Highlights</h2>
 
   <div class="code-wrapper">
 
-    <!-- capsule detection -->
+    <!-- Image 1 -->
     <div class="code-row">
-      <img src="images/capsuledetection.png" class="code-img" alt="Capsule detection code">
+      <img src="images/capsuledetection.png" class="code-img">
       <div class="code-desc">
-        Sub-stepped melee collision: the sword’s motion is sampled multiple
-        times per frame using capsule checks along the blade arc. This prevents
-        tunneling and ensures accurate hit detection even at high swing speed.
+        Sub-stepped melee collision: the sword’s movement is sampled multiple
+        times per frame using capsule checks to avoid tunneling and guarantee
+        precise hit detection even at fast swing speeds.
       </div>
     </div>
 
-    <!-- rotation blending -->
+    <!-- Image 2 -->
     <div class="code-row reverse">
-      <img src="images/blending.png" class="code-img" alt="Rotation blending code">
+      <img src="images/blending.png" class="code-img">
       <div class="code-desc">
-        Adaptive rotation blending: fast anticipation windup followed by slower
-        strike-window tracking. Makes boss attacks readable, threatening,
-        and responsive to player movement.
+        Adaptive rotation blending: accelerated anticipation turning blended
+        into slower tracking during the strike window for clearer telegraphs.
       </div>
     </div>
 
