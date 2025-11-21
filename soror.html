@@ -208,12 +208,34 @@
 </div>
 
   <!-- CODE HIGHLIGHTS TITLE -->
-  <h2 class="red-title">Code Highlights</h2>
+  <div class="container">
 
-  <!-- CODE IMAGES -->
+  <!-- ABOUT + CODE HIGHLIGHTS – wspólny nagłówek -->
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+    <h2 class="red-title" style="margin:0;">About the Project</h2>
+    <h2 class="red-title" style="margin:0;">Code Highlights</h2>
+  </div>
+
+  <!-- ABOUT TEXT -->
+  <div class="box" style="margin-bottom:50px;">
+    <p>
+      Soror is a passion-driven <strong>boss rush</strong> created as part of my bachelor's thesis.
+      Developed by a 4-person team, where I serve as the <strong>AI & gameplay programmer</strong>.
+      I created the enemy behaviour logic, posture system, AOE mechanics,
+      and built a <strong>custom Unity Editor Window</strong> for aligning AOE patterns to the arena.
+    </p>
+  </div>
+
+  <!-- VIDEO (ZOSTAWIAM BEZ ZMIAN) -->
+  <div style="text-align:center; margin:40px 0;">
+    <video src="videos/sororvideo.mp4" controls style="max-width:100%; height:auto; border-radius:12px;"></video>
+  </div>
+
+  <!-- CODE HIGHLIGHTS KAFELKI -->
   <div class="code-wrapper">
 
-    <div class="code-row" style="justify-content:flex-start;">
+    <!-- PIERWSZY KAFELEK: trochę z lewej -->
+    <div class="code-row" style="margin-left:40px;">
       <img src="images/capsuledetection.png" class="code-img">
       <div class="code-desc">
         Sub-stepped melee collision: the sword’s movement is sampled multiple
@@ -221,7 +243,8 @@
       </div>
     </div>
 
-    <div class="code-row reverse" style="justify-content:flex-end;">
+    <!-- DRUGI KAFEL: niżej, trochę z prawej -->
+    <div class="code-row reverse" style="margin-right:40px; margin-top:40px;">
       <img src="images/blending.png" class="code-img">
       <div class="code-desc">
         Adaptive rotation blending for readable attack telegraphs and smooth timing transitions.
