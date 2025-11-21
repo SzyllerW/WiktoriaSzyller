@@ -8,171 +8,173 @@
   <style>
     body {
       font-family: "Segoe UI", sans-serif;
-      background: #1b1b1b; /* ciemne tło */
+      background: #1b1b1b;
       margin: 0;
       padding: 0;
       color: #f1f1f1;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #262626;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-
-    h1 {
-      font-size: 34px;
-      margin-top: 0;
-      color: #ffffff;
-    }
-
-    h2 {
-      margin-top: 28px;
-      font-size: 22px;
-      color: #ffffff;
-    }
-
-    p {
-      color: #d2d2d2;
-      line-height: 1.6;
-    }
-
-    ul {
-      color: #d2d2d2;
-      line-height: 1.6;
-      padding-left: 20px;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin: 20px 0;
-      display: block;
-    }
-
-    .back {
+    a.back {
       display: inline-block;
+      margin: 20px 30px;
       color: #ccc;
-      margin-bottom: 20px;
       font-size: 15px;
     }
-
-    .back:hover {
+    a.back:hover {
       text-decoration: underline;
     }
 
+    .section {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto 50px auto;
+    }
+
+    .about-box {
+      background: #262626;
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid #333;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    }
+
+    h1, h2 {
+      color: #fff;
+      margin-top: 0;
+    }
+
+    p, ul {
+      color: #d0d0d0;
+      line-height: 1.6;
+    }
+
+    img.logo {
+      max-width: 300px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
     video {
+      width: 100%;
       border-radius: 12px;
       margin-top: 20px;
-      width: 100%;
       display: block;
     }
 
-    /* CODE HIGHLIGHTS – blok z obrazkiem + opis wysuwany na hover */
-    .code-block {
-      margin: 30px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #1a1a1a;
+    /* ------- CODE HIGHLIGHTS ------- */
+
+    .code-wrapper {
+      margin-top: 40px;
+    }
+
+    .code-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 40px;
+      gap: 24px;
+      position: relative;
+    }
+
+    .code-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .code-img {
+      display: block;
+      border-radius: 8px;
+      image-rendering: crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .code-desc {
+      background: #111;
+      padding: 16px 20px;
+      border-radius: 10px;
+      color: #eee;
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 260px;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: 0.3s ease;
+      pointer-events: none;
       border: 1px solid #333;
     }
 
-    .code-image {
-      width: 100%;
-      display: block;
+    .code-row:hover .code-desc {
+      opacity: 1;
+      transform: translateX(0);
     }
 
-    .code-info {
-      max-height: 0;
-      overflow: hidden;
-      background: #111;
-      color: #eee;
-      padding: 0 18px;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      font-size: 14px;
-      line-height: 1.55;
+    .code-row.reverse:hover .code-desc {
+      transform: translateX(0);
     }
 
-    .code-block:hover .code-info {
-      max-height: 300px;
-      padding: 18px;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        margin: 20px auto;
-        padding: 16px;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <a class="back" href="index.html">← Back to Portfolio</a>
 
-    <a class="back" href="index.html">← Back to Portfolio</a>
-
+  <!-- ABOUT SECTION -->
+  <div class="section about-box">
     <h1>Soror – Boss Rush Project</h1>
+    <img src="images/soror.png" class="logo" alt="Soror logo">
 
-    <img src="images/soror.png" alt="Soror logo">
+    <p><strong>Soror</strong> is a boss-rush action game created as a 
+    <strong>passion project for my bachelor's thesis</strong>. Our team of 
+    <strong>four developers</strong> collaborated on its design, worldbuilding and gameplay systems.</p>
 
-    <h2>About the Project</h2>
-    <p>
-      <strong>Soror</strong> is a boss-rush action game created as a 
-      <strong>passion project for my bachelor's thesis</strong>.
-      The game was developed by a <strong>4-person team</strong>, where my role focused on gameplay programming:
-    </p>
+    <p>My role focused entirely on <strong>enemy AI and combat programming</strong>, including:</p>
 
     <ul>
-      <li>designing and implementing enemy AI and boss combat behaviour</li>
-      <li>creating AOE patterns and telegraph systems</li>
-      <li>building a custom Unity Editor window to align AOE shapes to floors and level geometry</li>
+      <li>designing the entire boss behaviour architecture (FSM-driven)</li>
+      <li>implementing melee collision & hit detection systems</li>
+      <li>creating AOE telegraph logic and multi-phase patterns</li>
+      <li>building a custom Unity Editor window for aligning AOE shapes to floors and uneven geometry</li>
     </ul>
 
-    <p>
-      My work centered on combat feel, readable but challenging boss attacks,
-      and systems that allow designers to iterate quickly on encounters.
-    </p>
+    <p>The project emphasizes gameplay feel, telegraph readability, and precise timing between the player and the boss.</p>
+  </div>
 
-    <!-- ———————————— GAMEPLAY VIDEO ———————————— -->
-
-    <h2>Gameplay Video</h2>
-
+  <!-- VIDEO SECTION -->
+  <div class="section">
     <video controls>
-      <source src="videos/sororvideo.mkv" type="video/x-matroska">
+      <source src="videos/sororvideo.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+  </div>
 
-    <!-- ———————————— CODE HIGHLIGHTS ———————————— -->
-
+  <!-- CODE HIGHLIGHTS -->
+  <div class="section">
     <h2>Code Highlights</h2>
 
-    <!-- CAPSULE DETECTION -->
-    <div class="code-block">
-      <img src="images/capsuledetection.png" alt="Capsule Detection Code" class="code-image">
-      <div class="code-info">
-        Sub-stepped melee collision: the sword’s motion is sampled multiple
-        times per frame using capsule checks along the blade arc, preventing
-        tunneling and ensuring accurate, high-speed hit detection.
-      </div>
-    </div>
+    <div class="code-wrapper">
 
-    <!-- ROTATION BLENDING -->
-    <div class="code-block">
-      <img src="images/blending.png" alt="Rotation Blending Code" class="code-image">
-      <div class="code-info">
-        Adaptive rotation blending: fast anticipation turn-in followed by slower
-        tracking during the attack window. This makes boss attacks readable and
-        well-telegraphed without losing threat or fluidity.
+      <!-- 1 — Capsule Detection (left) -->
+      <div class="code-row">
+        <img src="images/capsuledetection.png" alt="Capsule Detection Code" class="code-img">
+        <div class="code-desc">
+          Sub-stepped melee collision: the sword’s motion is sampled
+          several times per frame using capsule checks along the blade arc.
+          This prevents tunneling and ensures consistent hit detection.
+        </div>
       </div>
-    </div>
 
+      <!-- 2 — Rotation Blending (right, lower) -->
+      <div class="code-row reverse">
+        <img src="images/blending.png" alt="Rotation Blending Code" class="code-img">
+        <div class="code-desc">
+          Adaptive rotation blending: fast anticipation turn-in followed
+          by slower strike-window tracking. This makes attacks readable
+          without losing threat or fluidity.
+        </div>
+      </div>
+
+    </div>
   </div>
 
 </body>
 </html>
-
