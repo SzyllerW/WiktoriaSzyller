@@ -2,88 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Soror – Project Details</title>
+  <title>Soror – Boss Rush Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css"> <!-- jeśli masz osobny CSS -->
+
   <style>
     body {
       font-family: "Segoe UI", sans-serif;
-      background: url("images/background.avif") repeat;
+      background: #1f1f1f; /* ciemno szare tło */
       margin: 0;
       padding: 0;
-      color: #111827;
+      color: #f5f5f5; /* jasny tekst */
     }
+
     .container {
       max-width: 900px;
       margin: 40px auto;
       padding: 20px;
-      background: white;
+      background: #2a2a2a; /* trochę jaśniejsze szarości dla sekcji */
       border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
+
     h1 {
       margin-top: 0;
-      font-size: 32px;
+      font-size: 34px;
+      color: #ffffff;
     }
+
+    h2 {
+      margin-top: 28px;
+      font-size: 22px;
+      color: #ffffff;
+    }
+
+    p, li {
+      color: #d7d7d7;
+      line-height: 1.6;
+    }
+
     img {
       max-width: 100%;
       border-radius: 12px;
-      margin-bottom: 20px;
+      margin: 20px 0;
+      display: block;
     }
+
     .back {
       display: inline-block;
       margin-bottom: 20px;
-      color: #111;
+      color: #e0e0e0;
+      font-size: 15px;
     }
-    pre {
-      background: #f3f4f6;
-      padding: 12px;
-      border-radius: 12px;
-      overflow-x: auto;
-      font-size: 14px;
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    .highlight-title {
+      font-size: 18px;
+      margin-top: 16px;
+      margin-bottom: 6px;
+      color: #fff;
+      font-weight: 600;
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
 
     <a class="back" href="index.html">← Back to Portfolio</a>
 
-    <h1>Soror – Boss Rush Game</h1>
+    <h1>Soror – Boss Rush Project</h1>
     <img src="images/soror.png" alt="Soror logo">
 
     <h2>About the Project</h2>
     <p>
-      Soror is a boss-rush action game focusing on advanced enemy AI,
-      parry mechanics, and telegraphed patterns. Each encounter builds
-      around timing, positioning, and reading the boss.
+      <strong>Soror</strong> is a boss-rush passion project created as part of my bachelor's thesis.
+      The game was developed by a <strong>4-person team</strong>, where I served as the 
+      <strong>enemy AI and combat systems programmer</strong>.
     </p>
 
-    <h2>Gameplay Features</h2>
-    <ul>
-      <li>Advanced boss AI with multiple phases</li>
-      <li>Area-of-effect telegraphs (AOE)</li>
-      <li>Parry-based combat system</li>
-      <li>Fast iteration tools for attack patterns</li>
-    </ul>
+    <p>
+      I implemented the entire boss behaviour architecture, advanced melee collision detection,
+      attack windows, posture/stagger logic, and the AOE telegraph system.
+      Additionally, I built a <strong>custom Unity Editor window</strong> for placing and 
+      aligning AOE telegraphs to floors and level geometry, improving workflow and designer iteration speed.
+    </p>
 
-    <h2>Sample Code</h2>
-    <pre>
-// Example: Parry Window Timing
 
-if (isParrying && bossAttack.InParryWindow)
-{
-    StaggerBoss();
-    PlayParryEffect();
-}
-    </pre>
+    <!-- SAMPLE CODE IMAGES -->
 
-    <h2>Screenshots</h2>
-    <img src="images/soror-gameplay1.png" alt="Gameplay screenshot">
-    <img src="images/soror-gameplay2.png" alt="Gameplay screenshot">
+    <h2>Code Highlights</h2>
+
+    <img src="images/capsule-detection.png" alt="Capsule detection code">
+    <div class="highlight-title">Sub-stepped sword collision (precise melee detection)</div>
+    <p>
+      The sword path is sampled multiple times per frame using interpolated capsule checks.
+      This prevents tunneling issues and ensures accurate, frame-independent melee hits.
+      The blade position is lerped between previous and current frame, and collisions are
+      checked along the entire trajectory.
+    </p>
+
+    <img src="images/blending.png" alt="Rotation blending code">
+    <div class="highlight-title">Adaptive rotation blending during attacks</div>
+    <p>
+      Before striking, the boss rotates faster to telegraph its attack, then blends into
+      a slower tracking rotation during the attack window. This makes combat readable but still threatening,
+      improving overall game feel and timing clarity.
+    </p>
 
   </div>
 
 </body>
 </html>
+
