@@ -5,20 +5,19 @@
   <title>Wiktoria Szyller – Unity Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfolio of Unity Developer – gameplay programming, clean mechanics, and polished game feel.">
+
   <style>
     :root {
-      --bg: #f3f4f6;          /* jasne szare tło */
-      --card: #ffffff;        /* białe elementy */
-      --text: #111827;        /* prawie czarny tekst */
-      --muted: #6b7280;       /* szary opis */
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
       --border: #e5e7eb;
       --shadow: 0 10px 25px rgba(0,0,0,0.07);
       --radius: 16px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: "Segoe UI", Roboto, sans-serif;
@@ -43,31 +42,11 @@
       padding: 20px;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      font-size: 28px;
-    }
-
-    h3 {
-      margin: 20px 0 8px;
-      font-size: 20px;
-    }
-
-    a {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    h1 { margin: 0; font-size: 40px; font-weight: 800; }
+    h2 { margin: 0 0 12px; font-size: 28px; }
+    h3 { margin: 20px 0 8px; font-size: 20px; }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     /* HEADER */
     .header-content {
@@ -89,7 +68,7 @@
       margin-left: 8px;
     }
 
-    /* HERO */
+    /* HERO SECTION */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -102,34 +81,21 @@
       color: var(--muted);
     }
 
-    /* Hello World as code */
     .hello-code {
       display: inline-block;
-      background:#3b3b3b;
+      background: #3b3b3b;
       color: #f9fafb;
       padding: 10px 16px;
       border-radius: 8px;
-      font-family: "Consolas", "Fira Code", monospace;
-      font-size: 16px;
-      margin-bottom: 14px;
+      font-family: "Consolas", monospace;
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
 
-    /* SKILLS */
     .skills-scroll {
       display: flex;
       gap: 12px;
       margin-top: 12px;
       overflow-x: auto;
-      padding-bottom: 6px;
-    }
-
-    .skills-scroll::-webkit-scrollbar {
-      height: 6px;
-    }
-    .skills-scroll::-webkit-scrollbar-thumb {
-      background: #d1d5db;
-      border-radius: 999px;
     }
 
     .skill {
@@ -137,10 +103,9 @@
       padding: 8px 16px;
       border-radius: 999px;
       font-weight: 600;
-      white-space: nowrap;
-      font-size: 14px;
       border: 1px solid var(--border);
       box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      white-space: nowrap;
     }
 
     .hero img {
@@ -150,335 +115,200 @@
       object-fit: cover;
     }
 
-    /* FEATURED PROJECTS (kafelki wyjeżdżające lewo/prawo) */
-    .featured-projects {
-      margin-top: 10px;
-    }
+    /* PROJECT CARDS */
+    .featured-projects { margin-top: 10px; }
 
     .featured-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      margin-top: 10px;
+      gap: 40px;
+      margin-top: 16px;
     }
 
     .project-card {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 20px;
-      align-items: center;
-      padding: 18px;
+      grid-template-columns: 1fr 1fr;
+      padding: 22px;
+      gap: 22px;
       background: var(--card);
-      border-radius: var(--radius);
+      border-radius: 16px;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      text-decoration: none;
       color: inherit;
-      overflow: hidden;
-      transform: translateX(0);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      transition: 0.35s ease;
     }
 
-    .project-card.right {
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    }
+    .project-card.left { transform: translateX(-70px); }
+    .project-card.right { transform: translateX(70px); }
 
-    .project-card.left {
-      transform: translateX(-40px);
-    }
-
-    .project-card.right {
-      transform: translateX(40px);
-    }
-
-    .project-card:hover {
-      transform: translateX(0);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.16);
-    }
+    .project-card:hover { transform: translateX(0); }
 
     .project-thumb img {
       width: 100%;
       border-radius: 12px;
       object-fit: cover;
-      display: block;
     }
 
     .project-meta-title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
       margin-bottom: 4px;
     }
 
     .project-meta-sub {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .project-meta-desc {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    /* PROJECTS SECTION (lista + opisy) */
-    .projects-section {
-      padding: 40px 0 10px;
-    }
-
-    .projects-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .projects-header h2 {
-      margin-bottom: 0;
-    }
-
-    .projects-nav {
-      font-size: 14px;
-      text-align: right;
-    }
-
-    .projects-nav a {
-      margin-left: 10px;
-      color: var(--muted);
-    }
-
-    .projects-nav a:hover {
-      color: var(--text);
-      text-decoration: underline;
-    }
-
-    .project-detail {
-      margin-bottom: 28px;
-      padding: 18px 20px;
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    }
-
-    .project-detail h3 {
-      margin-top: 0;
-      margin-bottom: 6px;
-    }
-
-    .project-detail small {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .project-detail p {
-      margin: 4px 0;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    /* CONTACT */
-    .contact {
-      padding: 40px 0 20px;
-      border-top: 1px solid var(--border);
-      margin-top: 10px;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 15px;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
       font-size: 13px;
-      padding: 12px 0 18px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 900px) {
-      h1 { font-size: 32px; }
-      .hero { grid-template-columns: 1fr; }
-      .project-card,
-      .project-card.right {
-        grid-template-columns: 1fr;
-        transform: translateX(0);
-      }
+    /* CONTACT SECTION */
+    #contact {
+      padding: 60px 0;
+      display: flex;
+      justify-content: flex-end; /* bardziej w prawo */
     }
 
-    @media (max-width: 600px) {
-      .projects-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .projects-nav {
-        text-align: left;
-      }
+    .contact-box {
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(4px);
+      padding: 35px 42px;
+      border-radius: 14px;
+      width: 380px;
+      margin-right: 100px; /* jeszcze bardziej w prawo */
+      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
     }
+
+    .github-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      background: #3b3b3b;
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .github-btn:hover { background: #4c4c4c; }
+
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="container header-content">
-      <div>
-        <h1>Wiktoria Szyller</h1>
-        <div class="subtitle">Unity Developer • Gameplay Programmer</div>
-      </div>
-      <nav>
-        <a href="#projects">Projects</a> | 
-        <a href="#contact">Contact</a>
-      </nav>
+<header>
+  <div class="container header-content">
+    <div>
+      <h1>Wiktoria Szyller</h1>
+      <div class="subtitle">Unity Developer • Gameplay Programmer</div>
     </div>
-  </header>
 
-  <main class="container">
+    <nav>
+      <a href="#projects">Projects</a> |
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <div class="hello-code">Debug.Log("Hello World!");</div>
+<main class="container">
 
-        <p class="hero-text">
-          I'm a Unity developer focused on gameplay programming, clean mechanics, and polished game feel.
-          Experienced with academic game-dev training, studio practice, and collaborative prototype development.
-          Passionate about turning ideas into functional systems and building games that <em>feel</em> good to play.
-        </p>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hello-code">Debug.Log("Hello World!");</div>
 
-        <h3>Skills</h3>
-        <div class="skills-scroll">
-          <div class="skill">Unity</div>
-          <div class="skill">C#</div>
-          <div class="skill">C++</div>
-          <div class="skill">GitHub</div>
-          <div class="skill">Fork</div>
-          <div class="skill">Visual Studio Code</div>
-          <div class="skill">Miro</div>
-          <div class="skill">Trello</div>
-          <div class="skill">SQL (Basics)</div>
+      <p class="hero-text">
+        I'm a Unity developer focused on gameplay programming, clean mechanics, and polished game feel.
+        Experienced with academic game-dev training, studio practice, and collaborative prototype development.
+      </p>
+
+      <h3>Skills</h3>
+
+      <div class="skills-scroll">
+        <div class="skill">Unity</div>
+        <div class="skill">C#</div>
+        <div class="skill">C++</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Fork</div>
+        <div class="skill">Visual Studio Code</div>
+        <div class="skill">Miro</div>
+        <div class="skill">Trello</div>
+        <div class="skill">SQL (Basics)</div>
+      </div>
+    </div>
+
+    <div>
+      <img src="images/background.avif">
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="featured-projects">
+    <h2>Projects</h2>
+
+    <div class="featured-list">
+
+      <a href="soror.html" class="project-card left">
+        <div class="project-thumb">
+          <img src="images/soror.png">
         </div>
-      </div>
-
-    
-    </section>
-
-    <!-- FEATURED PROJECTS – kafelki -->
-    <section class="featured-projects">
-      <h2>Projects</h2>
-      <div class="featured-list">
-
-        <!-- Soror card, wjeżdża z lewej -->
-        <a href="soror.html" class="project-card left">
-          <div class="project-thumb">
-            <img src="images/soror.png" alt="Soror logo">
-          </div>
-          <div class="project-meta">
-            <div class="project-meta-sub">Boss Rush | Unity</div>
-            <div class="project-meta-title">Soror</div>
-            <p class="project-meta-desc">
-              Boss-rush action game with advanced boss AI, area-of-effect patterns,
-              and combat focused on timing and parrying enemy attacks.
-            </p>
-          </div>
-        </a>
-
-        <!-- Zoonauts card, wjeżdża z prawej -->
-        <a href="#zoonauts" class="project-card right">
-          <div class="project-meta">
-            <div class="project-meta-sub">2D Platformer | Unity</div>
-            <div class="project-meta-title">Zoonauts</div>
-            <p class="project-meta-desc">
-              Cute but challenging platformer starring animal astronauts,
-              featuring character-specific movement abilities and playful level design.
-            </p>
-          </div>
-          <div class="project-thumb">
-            <img src="images/zoonatus.png" alt="Zoonauts logo">
-          </div>
-        </a>
-
-        <!-- Spacetaker placeholder (możesz dodać własny obraz) -->
-        <a href="#spacetaker" class="project-card left">
-          <div class="project-thumb">
-            <img src="images/spacetaker.png" alt="Zoonauts logo">
-          </div>
-          <div class="project-meta">
-            <div class="project-meta-sub">Multiplayer | Unity</div>
-            <div class="project-meta-title">Spacetaker</div>
-            <p class="project-meta-desc">
-              Online multiplayer project focused on ship control, cooperative defense,
-              and synchronized events across the network.
-            </p>
-          </div>
-        </a>
-
-
-      </div>
-    </section>
-
-
-    <!-- CONTACT -->
-<section id="contact" class="contact" 
-         style="padding:60px 0; display:flex; justify-content:flex-end;">
-  <div style="
-    background: rgba(255,255,255,0.55);
-    padding: 30px 40px;
-    border-radius: 14px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-    width: 380px;
-    margin-right: 40px;
-  ">
-    <h2 style="margin-top:0; font-size:28px; color:#111;">Contact</h2>
-
-    <div class="contact-info" style="font-size:16px; color:#222;">
-      <div><strong>Wiktoria Szyller</strong></div>
-
-      <div style="margin-top:10px;">
-        📞 +48 517 243 415
-      </div>
-
-      <div style="margin-top:6px;">
-        ✉️ <a href="mailto:szyllerwiktoria@gmail.com" 
-              style="color:#111; text-decoration:none;">
-              szyllerwiktoria@gmail.com
-            </a>
-      </div>
-
-      <!-- GitHub button (szary, elegancki) -->
-      <a href="https://github.com/SzyllerW"
-         target="_blank"
-         style="
-           display:inline-block;
-           margin-top:20px;
-           padding:12px 22px;
-           background:#3b3b3b;
-           color:white;
-           text-decoration:none;
-           border-radius:8px;
-           font-weight:600;
-           transition:0.2s ease;
-         "
-         onmouseover="this.style.background='#4c4c4c'"
-         onmouseout="this.style.background='#3b3b3b'">
-        View GitHub →
+        <div>
+          <div class="project-meta-sub">Boss Rush | Unity</div>
+          <div class="project-meta-title">Soror</div>
+          <p>Boss-rush action game with advanced AI, readable telegraphs, AOE patterns & posture system.</p>
+        </div>
       </a>
+
+      <a href="#" class="project-card right">
+        <div>
+          <div class="project-meta-sub">2D Platformer | Unity</div>
+          <div class="project-meta-title">Zoonauts</div>
+          <p>Cute-but-tough platformer about animal astronauts with unique movement abilities.</p>
+        </div>
+        <div class="project-thumb">
+          <img src="images/zoonatus.png">
+        </div>
+      </a>
+
+      <a href="#" class="project-card left">
+        <div class="project-thumb">
+          <img src="images/spacetaker.png">
+        </div>
+        <div>
+          <div class="project-meta-sub">Multiplayer | Unity</div>
+          <div class="project-meta-title">Spacetaker</div>
+          <p>Online multiplayer prototype focused on ships, planets and synchronised events.</p>
+        </div>
+      </a>
+
     </div>
+  </section>
+
+</main>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <h2>Contact</h2>
+
+    <strong>Wiktoria Szyller</strong><br><br>
+
+    📞 +48 517 243 415<br>
+    ✉️ <a href="mailto:szyllerwiktoria@gmail.com">szyllerwiktoria@gmail.com</a>
+
+    <a href="https://github.com/SzyllerW"
+       class="github-btn"
+       target="_blank">
+      View GitHub →
+    </a>
   </div>
 </section>
 
-  </main>
-
-  <footer>
-    © 2025 Wiktoria Szyller – All rights reserved.
-  </footer>
+<footer style="text-align:center; padding:20px; color:#6b7280;">
+  © 2025 Wiktoria Szyller – All rights reserved.
+</footer>
 
 </body>
 </html>
