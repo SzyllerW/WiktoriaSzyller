@@ -65,6 +65,37 @@
       color: #fff;
       font-weight: 600;
     }
+
+    .code-box {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 260px;
+  background-color: #000000cc;
+  color: #fff;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.25s ease;
+  font-size: 14px;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.code-box:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
   </style>
 </head>
 
@@ -94,27 +125,31 @@
 
     <!-- SAMPLE CODE IMAGES -->
 
-    <h2>Code Highlights</h2>
+<h2>Code Highlights</h2>
 
-    <img src="images/capsuledetection.png" alt="Capsule detection code">
-    <div class="highlight-title">Sub-stepped sword collision (precise melee detection)</div>
-    <p>
-      The sword path is sampled multiple times per frame using interpolated capsule checks.
-      This prevents tunneling issues and ensures accurate, frame-independent melee hits.
-      The blade position is lerped between previous and current frame, and collisions are
-      checked along the entire trajectory.
-    </p>
+<!-- Capsule Detection -->
+<div class="code-box">
+  <img src="images/capsuledetection.png" alt="Capsule detection code">
 
-    <img src="images/blending.png" alt="Rotation blending code">
-    <div class="highlight-title">Adaptive rotation blending during attacks</div>
-    <p>
-      Before striking, the boss rotates faster to telegraph its attack, then blends into
-      a slower tracking rotation during the attack window. This makes combat readable but still threatening,
-      improving overall game feel and timing clarity.
-    </p>
-
+  <div class="tooltip">
+    Sub-stepped melee collision: the sword’s motion is sampled multiple
+    times per frame using capsule checks along the entire blade path.
+    This prevents tunneling and makes hits accurate at any framerate.
   </div>
+</div>
 
+<!-- Rotation Blending -->
+<div class="code-box">
+  <img src="images/blending.png" alt="Rotation blending code">
+
+  <div class="tooltip">
+    Adaptive rotation blending: the boss rotates quickly in anticipation,
+    then slows during the strike window, making attacks readable yet
+    threatening and improving combat clarity.
+  </div>
+</div>
+
+</div> <!-- zamknięcie .container -->
 </body>
 </html>
 
