@@ -426,38 +426,53 @@
 
 
     <!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <div class="contact-info">
-    <div><strong>Wiktoria Szyller</strong></div>
-    <div>📞 +48 517 243 415</div>
-    <div>📧 <a href="mailto:szyllerwiktoria@gmail.com">szyllerwiktoria@gmail.com</a></div>
+<section id="contact" class="contact" 
+         style="padding:50px 0; display:flex; justify-content:center;">
+  <div style="
+    background: rgba(255,255,255,0.55);
+    padding: 30px 40px;
+    border-radius: 14px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+    max-width: 420px;
+    width: 100%;
+  ">
+    <h2 style="margin-top:0; font-size:28px; color:#111;">Contact</h2>
 
-    <div>
-  <a href="https://github.com/SzyllerW" 
-    target="_blank"
-    style="
-      display:inline-block;
-      padding:10px 20px;
-      background:#3b3b3b;        /* szary przycisk */
-      color:white;
-      border-radius:8px;
-      text-decoration:none;
-      margin-top:10px;
-      font-weight:600;
-      transition:0.2s;
-    "
-    onmouseover="this.style.background='#505050'"
-    onmouseout="this.style.background='#3b3b3b'"
-  >
-    View GitHub →
-  </a>
-</div>
+    <div class="contact-info" style="font-size:16px; color:#222;">
+      <div><strong>Wiktoria Szyller</strong></div>
 
+      <div style="margin-top:10px;">
+        📞 +48 517 243 415
+      </div>
 
+      <div style="margin-top:6px;">
+        ✉️ <a href="mailto:szyllerwiktoria@gmail.com" 
+              style="color:#111; text-decoration:none;">
+              szyllerwiktoria@gmail.com
+            </a>
+      </div>
+
+      <!-- GitHub button -->
+      <a href="https://github.com/SzyllerW"
+         target="_blank"
+         style="
+           display:inline-block;
+           margin-top:20px;
+           padding:12px 22px;
+           background:#333;
+           color:white;
+           text-decoration:none;
+           border-radius:8px;
+           font-weight:600;
+           transition:0.2s;
+         "
+         onmouseover="this.style.background='#444'"
+         onmouseout="this.style.background='#333'">
+        View GitHub →
+      </a>
+    </div>
   </div>
 </section>
-
   </main>
 
   <footer>
