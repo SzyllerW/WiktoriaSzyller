@@ -4,33 +4,37 @@
   <meta charset="utf-8">
   <title>Wiktoria Szyller – Unity Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio of Unity Developer – gameplay programming, C#, C++, mechanics, prototyping, and game systems.">
+  <meta name="description" content="Portfolio of Unity Developer – gameplay programming, clean mechanics, and polished game feel.">
   <style>
     :root {
-      --brown: #6b4e3d;
-      --brown-dark: #4b372b;
-      --gray: #6b7280;
-      --gray-light: #e5e7eb;
-      --white: #ffffff;
-      --shadow: 0 6px 18px rgba(0,0,0,0.08);
+      --bg: #f3f4f6;          /* jasne szare tło */
+      --card: #ffffff;        /* białe elementy */
+      --text: #111827;        /* prawie czarny tekst */
+      --muted: #6b7280;       /* szary opis */
+      --border: #e5e7eb;
+      --shadow: 0 10px 25px rgba(0,0,0,0.07);
       --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       font-family: "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      background: var(--white);
-      color: var(--brown-dark);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
     header {
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-light);
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
 
     .container {
@@ -43,22 +47,21 @@
       margin: 0;
       font-size: 40px;
       font-weight: 800;
-      color: var(--brown-dark);
+      letter-spacing: 0.03em;
     }
 
     h2 {
       margin: 0 0 12px;
-      color: var(--brown-dark);
       font-size: 28px;
     }
 
     h3 {
       margin: 20px 0 8px;
-      color: var(--brown-dark);
+      font-size: 20px;
     }
 
     a {
-      color: var(--brown);
+      color: var(--text);
       text-decoration: none;
     }
 
@@ -72,25 +75,44 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
     .subtitle {
       font-size: 14px;
-      color: var(--gray);
+      color: var(--muted);
       margin-top: 4px;
+    }
+
+    nav a {
+      font-size: 14px;
+      margin-left: 8px;
     }
 
     /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       gap: 24px;
       padding: 40px 0;
     }
 
     .hero-text {
-      font-size: 18px;
-      color: var(--gray);
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    /* Hello World as code */
+    .hello-code {
+      display: inline-block;
+      background: #111827;
+      color: #f9fafb;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: "Consolas", "Fira Code", monospace;
+      font-size: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
 
     /* SKILLS */
@@ -102,83 +124,204 @@
       padding-bottom: 6px;
     }
 
+    .skills-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .skills-scroll::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 999px;
+    }
+
     .skill {
-      background: var(--gray-light);
+      background: var(--card);
       padding: 8px 16px;
       border-radius: 999px;
       font-weight: 600;
       white-space: nowrap;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       font-size: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
     }
 
-    /* PROJECTS */
-    .projects {
-      padding: 40px 0;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 24px;
-    }
-
-    .project {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--gray-light);
-      background: var(--white);
-      transition: transform 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-6px);
-    }
-
-    .thumb {
-      height: 200px;
-      background: linear-gradient(135deg, #d7ccc8, #efebe9);
-    }
-
-    .project-hover {
-      position: absolute;
-      bottom: -100%;
-      left: 0;
+    .hero img {
       width: 100%;
-      padding: 20px;
-      background: rgba(75, 55, 43, 0.92);
-      color: var(--white);
-      transition: bottom 0.3s ease;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      object-fit: cover;
     }
 
-    .project:hover .project-hover {
-      bottom: 0;
+    /* FEATURED PROJECTS (kafelki wyjeżdżające lewo/prawo) */
+    .featured-projects {
+      margin-top: 10px;
+    }
+
+    .featured-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 20px;
+      align-items: center;
+      padding: 18px;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transform: translateX(0);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .project-card.right {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    }
+
+    .project-card.left {
+      transform: translateX(-40px);
+    }
+
+    .project-card.right {
+      transform: translateX(40px);
+    }
+
+    .project-card:hover {
+      transform: translateX(0);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.16);
+    }
+
+    .project-thumb img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-meta-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .project-meta-sub {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .project-meta-desc {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* PROJECTS SECTION (lista + opisy) */
+    .projects-section {
+      padding: 40px 0 10px;
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .projects-header h2 {
+      margin-bottom: 0;
+    }
+
+    .projects-nav {
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .projects-nav a {
+      margin-left: 10px;
+      color: var(--muted);
+    }
+
+    .projects-nav a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .project-detail {
+      margin-bottom: 28px;
+      padding: 18px 20px;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    .project-detail h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .project-detail small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .project-detail p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     /* CONTACT */
     .contact {
-      padding: 40px 0;
-      border-top: 1px solid var(--gray-light);
+      padding: 40px 0 20px;
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
     }
 
     .contact-info {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
+      font-size: 15px;
     }
 
     footer {
       text-align: center;
-      color: var(--gray);
+      color: var(--muted);
       font-size: 13px;
-      padding: 16px 0;
+      padding: 12px 0 18px;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       h1 { font-size: 32px; }
       .hero { grid-template-columns: 1fr; }
+      .project-card,
+      .project-card.right {
+        grid-template-columns: 1fr;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .projects-nav {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -199,13 +342,15 @@
 
   <main class="container">
 
+    <!-- HERO -->
     <section class="hero">
       <div>
-        <h2>Hello World!</h2>
+        <div class="hello-code">Debug.Log("Hello World!");</div>
+
         <p class="hero-text">
-          Unity developer focused on gameplay programming, clean mechanics, and polished game feel.  
-          Experienced with academic game-dev training, studio practice, and collaborative prototype development.  
-          Passionate about turning ideas into functional systems and building games that *feel* good to play.
+          I'm a Unity developer focused on gameplay programming, clean mechanics, and polished game feel.
+          Experienced with academic game-dev training, studio practice, and collaborative prototype development.
+          Passionate about turning ideas into functional systems and building games that <em>feel</em> good to play.
         </p>
 
         <h3>Skills</h3>
@@ -215,7 +360,7 @@
           <div class="skill">C++</div>
           <div class="skill">GitHub</div>
           <div class="skill">Fork</div>
-          <div class="skill">Visual Studio 2022</div>
+          <div class="skill">Visual Studio Code</div>
           <div class="skill">Miro</div>
           <div class="skill">Trello</div>
           <div class="skill">SQL (Basics)</div>
@@ -223,38 +368,131 @@
       </div>
 
       <div>
-        <img src="https://images.unsplash.com/photo-1602002440973-737a9a67a0f2?auto=format&fit=crop&w=800&q=80" alt="Game development concept" style="width:100%;border-radius:16px;box-shadow:var(--shadow);">
+        <!-- Ogólny obrazek portfolio (możesz podmienić na swój) -->
+        <img src="/mnt/data/1000_F_302241153_4ToogR2Yu4OIU6GFmyIIBr1xtQ4HYvTT.jpg"
+             alt="Portfolio layout preview">
       </div>
     </section>
 
-    <section id="projects" class="projects">
-      <h2>Projects</h2>
+    <!-- FEATURED PROJECTS – kafelki -->
+    <section class="featured-projects">
+      <h2>Featured Projects</h2>
+      <div class="featured-list">
 
-      <div class="projects-grid">
-
-        <div class="project">
-          <div class="thumb"></div>
-          <div class="project-hover">
-            <h3>Soror – Boss Rush</h3>
-            <p>Action-focused boss encounters, mechanics scripting, combat logic, and prototype iteration.</p>
+        <!-- Soror card, wjeżdża z lewej -->
+        <a href="#soror" class="project-card left">
+          <div class="project-thumb">
+            <img src="/mnt/data/Zrzut ekranu 2025-11-21 194113.png" alt="Soror logo">
           </div>
-        </div>
-
-        <div class="project">
-          <div class="thumb"></div>
-          <div class="project-hover">
-            <h3>Zoonauts – Platformer</h3>
-            <p>2D platformer with multiple characters, each with unique mechanics and movement systems.</p>
+          <div class="project-meta">
+            <div class="project-meta-sub">Boss Rush | Unity</div>
+            <div class="project-meta-title">Soror</div>
+            <p class="project-meta-desc">
+              Boss-rush action game with advanced boss AI, area-of-effect patterns,
+              and combat focused on timing and parrying enemy attacks.
+            </p>
           </div>
-        </div>
+        </a>
 
-        <div class="project">
-          <div class="thumb"></div>
-          <div class="project-hover">
-            <h3>Spacetaker – Multiplayer</h3>
-            <p>Online multiplayer prototype involving ship control, events, and synchronized game logic.</p>
+        <!-- Zoonauts card, wjeżdża z prawej -->
+        <a href="#zoonauts" class="project-card right">
+          <div class="project-meta">
+            <div class="project-meta-sub">2D Platformer | Unity</div>
+            <div class="project-meta-title">Zoonauts</div>
+            <p class="project-meta-desc">
+              Cute but challenging platformer starring animal astronauts,
+              featuring character-specific movement abilities and playful level design.
+            </p>
           </div>
-        </div>
+          <div class="project-thumb">
+            <img src="/mnt/data/Zrzut ekranu 2025-11-21 194146.png" alt="Zoonauts logo">
+          </div>
+        </a>
 
-        <!-- Remaining placeholders -->
-        <div class="project"><div class="thumb"></div><div class="project-hover"><h3>Project 4</h3><p>Comin
+        <!-- Spacetaker placeholder (możesz dodać własny obraz) -->
+        <a href="#spacetaker" class="project-card left">
+          <div class="project-thumb">
+            <img src="/mnt/data/1000_F_302241153_4ToogR2Yu4OIU6GFmyIIBr1xtQ4HYvTT.jpg" alt="Spacetaker placeholder">
+          </div>
+          <div class="project-meta">
+            <div class="project-meta-sub">Multiplayer | Unity</div>
+            <div class="project-meta-title">Spacetaker</div>
+            <p class="project-meta-desc">
+              Online multiplayer project focused on ship control, cooperative defense,
+              and synchronized events across the network.
+            </p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION – lista + dokładniejsze opisy -->
+    <section id="projects" class="projects-section">
+      <div class="projects-header">
+        <h2>Projects</h2>
+        <div class="projects-nav">
+          <span>Jump to:</span>
+          <a href="#soror">Soror</a>
+          <a href="#zoonauts">Zoonauts</a>
+          <a href="#spacetaker">Spacetaker</a>
+        </div>
+      </div>
+
+      <article id="soror" class="project-detail">
+        <small>Boss Rush • Unity • Academic Project / Thesis</small>
+        <h3>Soror</h3>
+        <p>
+          Boss-rush game centred entirely around combat with advanced boss AI.
+          Encounters use telegraphed attacks, AoE patterns, and phases that ramp up difficulty.
+        </p>
+        <p>
+          My focus is on implementing responsive player controls, parry windows,
+          readable attack patterns, and tools for quickly iterating on boss behaviour.
+        </p>
+      </article>
+
+      <article id="zoonauts" class="project-detail">
+        <small>2D Platformer • Unity</small>
+        <h3>Zoonauts</h3>
+        <p>
+          A 2D platformer where animal astronauts explore colourful planets, each with unique movement rules.
+        </p>
+        <p>
+          Responsibilities include implementing character abilities, movement systems,
+          environmental interactions, and maintaining a clean, reusable code structure for the different heroes.
+        </p>
+      </article>
+
+      <article id="spacetaker" class="project-detail">
+        <small>Multiplayer Prototype • Unity</small>
+        <h3>Spacetaker</h3>
+        <p>
+          Multiplayer prototype set in space, focused on cooperative defence and controlling ships around planets.
+        </p>
+        <p>
+          Work includes gameplay logic, basic networking concepts, and experimenting with synchronised events
+          between multiple players.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <div><strong>Wiktoria Szyller</strong></div>
+        <div>📞 +48 517 243 415</div>
+        <div>📧 <a href="mailto:szyllerwiktoria@gmail.com">szyllerwiktoria@gmail.com</a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 Wiktoria Szyller – All rights reserved.
+  </footer>
+
+</body>
+</html>
