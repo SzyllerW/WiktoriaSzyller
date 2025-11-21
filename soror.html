@@ -29,56 +29,43 @@
       font-size: 16px;
     }
 
-    /* ---------------- HERO ---------------- */
+    /* ---------- HERO ---------- */
 
     .hero-header {
       width: 100%;
-      padding: 40px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 60px 0;
+      text-align: center;
       background: #000;
       border-bottom: 2px solid #333;
       box-shadow: 0 0 30px rgba(255,0,0,0.25);
     }
 
-    .hero-title-block {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
     .hero-title {
       font-size: 52px;
       font-weight: 900;
-      text-transform: uppercase;
       color: #fff;
       letter-spacing: 3px;
-      margin-bottom: 6px;
-      text-shadow:
-        0 0 12px rgba(255,0,0,0.6),
-        0 0 24px rgba(255,0,0,0.4);
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(255,0,0,0.6);
+      margin-bottom: 8px;
     }
 
     .subtitle {
       font-size: 22px;
       color: #ffcccc;
-      text-shadow:
-        0 0 8px rgba(255,0,0,0.5),
-        0 0 14px rgba(255,0,0,0.3);
+      text-shadow: 0 0 10px rgba(255,0,0,0.4);
     }
 
     .hero-img {
-  width: auto;
-  max-width: 400px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border: 4px solid black;
-  box-shadow: 0 0 60px rgba(255,0,0,0.6);
-}
+      display: block;
+      margin: 30px auto;
+      max-width: 380px;
+      border: 4px solid black;
+      box-shadow: 0 0 60px rgba(255,0,0,0.6);
+      border-radius: 8px;
+    }
 
-    /* ---------------- CONTENT ---------------- */
+    /* ---------- CONTENT ---------- */
 
     .container {
       max-width: 1000px;
@@ -97,74 +84,62 @@
 
     .red-title {
       color: #ff3b3b;
-      text-shadow:
-        0 0 6px rgba(255,0,0,0.6),
-        0 0 12px rgba(255,0,0,0.4);
-      margin-top: 0;
+      text-shadow: 0 0 12px rgba(255,0,0,0.6);
+      margin-bottom: 14px;
     }
 
-    /* ---------------- VIDEO CROP ---------------- */
+    /* ---------- VIDEO ---------- */
 
-    .video-crop {
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
+    .video-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .video-section video {
+      max-width: 100%;
       border-radius: 12px;
-      border: 2px solid #333;
-      margin-bottom: 40px;
     }
 
-    .video-crop video {
-      width: 120%;
-      margin-left: -10%;
-      margin-top: -5%;
-    }
-
-    /* ---------------- CODE HIGHLIGHTS ---------------- */
+    /* ---------- CODE ---------- */
 
     .code-wrapper { margin-top: 10px; }
 
     .code-row {
       display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      margin-bottom: 50px;
+      align-items: center;
+      margin-bottom: 40px;
       gap: 24px;
-      position: relative;
     }
 
-    .code-row.reverse { flex-direction: row-reverse; }
+    .code-row.reverse {
+      flex-direction: row-reverse;
+      margin-top: 40px;
+    }
 
     .code-img {
-      display: block;
       border-radius: 6px;
+      display: block;
     }
 
     .code-desc {
       background: #111;
       padding: 16px 20px;
       border-radius: 10px;
-      color: #eee;
-      font-size: 14px;
-      line-height: 1.55;
       max-width: 260px;
+      color: #eee;
       opacity: 0;
       transform: translateX(20px);
-      transition: 0.3s ease;
-      pointer-events: none;
-      border: none;
-      box-shadow: none;
+      transition: 0.3s;
     }
 
     .code-row:hover .code-desc {
       opacity: 1;
-      transform: translateX(0px);
+      transform: translateX(0);
     }
 
     footer {
       text-align: center;
       padding: 40px;
-      font-size: 14px;
       color: #777;
     }
 
@@ -176,22 +151,17 @@
 <a href="https://szyllerw.github.io/WiktoriaSzyller/" class="back">← Back to Portfolio</a>
 
 <!-- HERO -->
-<div class="hero-header" style="justify-content:center; text-align:center; padding:60px 0;">
-  <div class="hero-title-block" style="align-items:center;">
-    <div class="hero-title">SOROR</div>
-    <div class="subtitle">Boss Rush</div>
-  </div>
+<div class="hero-header">
+  <div class="hero-title">SOROR</div>
+  <div class="subtitle">Boss Rush</div>
 </div>
-    <div class="subtitle">Boss Rush</div>
-  </div>
 
-  <img src="images/soror.png" class="hero-img" alt="Soror header">
-</div>
+<img src="images/soror.png" class="hero-img" alt="Soror header">
 
 <div class="container">
 
   <!-- ABOUT -->
-  
+  <div class="box">
     <h2 class="red-title">About the Project</h2>
     <p>
       Soror is a passion-driven <strong>boss rush</strong> created as part of my bachelor's thesis.
@@ -201,40 +171,17 @@
     </p>
   </div>
 
-  <!-- VIDEO WITH CROP -->
-  <div style="text-align:center; margin:40px 0;">
-  <video src="videos/sororvideo.mp4" controls style="max-width:100%; height:auto; border-radius:12px;">
-  </video>
-</div>
-
-  <!-- CODE HIGHLIGHTS TITLE -->
-  <div class="container">
-
-  <!-- ABOUT + CODE HIGHLIGHTS – wspólny nagłówek -->
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-    <h2 class="red-title" style="margin:0;">About the Project</h2>
-    <h2 class="red-title" style="margin:0;">Code Highlights</h2>
+  <!-- VIDEO -->
+  <div class="video-section">
+    <video src="videos/sororvideo.mp4" controls></video>
   </div>
 
-  <!-- ABOUT TEXT -->
-  <div class="box" style="margin-bottom:50px;">
-    <p>
-      Soror is a passion-driven <strong>boss rush</strong> created as part of my bachelor's thesis.
-      Developed by a 4-person team, where I serve as the <strong>AI & gameplay programmer</strong>.
-      I created the enemy behaviour logic, posture system, AOE mechanics,
-      and built a <strong>custom Unity Editor Window</strong> for aligning AOE patterns to the arena.
-    </p>
-  </div>
+  <!-- CODE -->
+  <h2 class="red-title">Code Highlights</h2>
 
-  <!-- VIDEO (ZOSTAWIAM BEZ ZMIAN) -->
-  <div style="text-align:center; margin:40px 0;">
-    <video src="videos/sororvideo.mp4" controls style="max-width:100%; height:auto; border-radius:12px;"></video>
-  </div>
-
-  <!-- CODE HIGHLIGHTS KAFELKI -->
   <div class="code-wrapper">
 
-    <!-- PIERWSZY KAFELEK: trochę z lewej -->
+    <!-- LEFT -->
     <div class="code-row" style="margin-left:40px;">
       <img src="images/capsuledetection.png" class="code-img">
       <div class="code-desc">
@@ -243,8 +190,8 @@
       </div>
     </div>
 
-    <!-- DRUGI KAFEL: niżej, trochę z prawej -->
-    <div class="code-row reverse" style="margin-right:40px; margin-top:40px;">
+    <!-- RIGHT -->
+    <div class="code-row reverse" style="margin-right:40px;">
       <img src="images/blending.png" class="code-img">
       <div class="code-desc">
         Adaptive rotation blending for readable attack telegraphs and smooth timing transitions.
@@ -255,9 +202,7 @@
 
 </div>
 
-<footer>
-  © 2025 Wiktoria Szyller
-</footer>
+<footer>© 2025 Wiktoria Szyller</footer>
 
 </body>
 </html>
