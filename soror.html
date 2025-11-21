@@ -29,71 +29,55 @@
       font-size: 16px;
     }
 
-
-    /* ----------------- HERO HEADER ----------------- */
+    /* ---------------- HERO ---------------- */
 
     .hero-header {
-      position: relative;
       width: 100%;
-      height: 420px;
-      overflow: hidden;
-      border-bottom: 2px solid #3a3a3a;
-      background: black;
+      padding: 40px 60px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      background: #000;
+      border-bottom: 2px solid #333;
+      box-shadow: 0 0 30px rgba(255,0,0,0.2);
     }
 
-    /* Główne zdjęcie */
     .hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* DOPASOWANIE DO CAŁEGO EKRANU */
-  border: 4px solid black;
-  box-shadow: 0 0 60px rgba(255,0,0,0.6);
-}
+      height: 220px;
+      width: auto;
+      border: 4px solid black;
+      box-shadow: 0 0 45px rgba(255,0,0,0.45);
+      border-radius: 6px;
+      object-fit: contain;
+    }
 
-
-    /* Czerwone płomienie */
-    .hero-overlay {
-      pointer-events: none;
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 80%, rgba(255,0,0,0.25) 0%, transparent 55%),
-        radial-gradient(circle at 80% 25%, rgba(255,25,0,0.35) 0%, transparent 60%),
-        radial-gradient(circle at 60% 90%, rgba(255,40,0,0.22) 0%, transparent 70%);
-      mix-blend-mode: screen;
-      filter: blur(55px);
+    .hero-title-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-title {
-      position: absolute;
-      bottom: 30px;
-      left: 40px;
-      z-index: 10;
-      font-size: 64px;
+      font-size: 52px;
       font-weight: 900;
-      letter-spacing: 3px;
       text-transform: uppercase;
       color: #fff;
+      letter-spacing: 3px;
+      margin-bottom: 6px;
       text-shadow:
-          0 0 12px rgba(255,0,0,0.6),
-          0 0 25px rgba(255,0,0,0.4);
+        0 0 12px rgba(255,0,0,0.6),
+        0 0 24px rgba(255,0,0,0.4);
     }
 
-    .hero-title .subtitle {
-      margin-top: -6px;
-      font-size: 26px;
-      font-weight: 400;
-      letter-spacing: 2px;
+    .subtitle {
+      font-size: 22px;
       color: #ffcccc;
       text-shadow:
-          0 0 12px rgba(255,0,0,0.5),
-          0 0 20px rgba(255,0,0,0.3);
+        0 0 8px rgba(255,0,0,0.5),
+        0 0 14px rgba(255,0,0,0.3);
     }
 
-
-    /* -------------- CONTENT -------------- */
+    /* ---------------- CONTENT ---------------- */
 
     .container {
       max-width: 1000px;
@@ -101,44 +85,48 @@
       margin: auto;
     }
 
-    .about-box {
+    .box {
       background: var(--card);
       padding: 24px 28px;
       border-radius: 12px;
       border: 1px solid #444;
       line-height: 1.6;
-      box-shadow: 0 0 20px rgba(0,0,0,0.25);
+      box-shadow:
+        0 0 10px rgba(255,0,0,0.15),
+        0 0 25px rgba(255,0,0,0.06);
+      margin-bottom: 40px;
+      transition: transform .2s;
     }
 
-    .about-box h2 {
-      margin-top: 0;
+    .box:hover {
+      transform: translateY(-3px);
     }
 
+    .box h2 { margin-top: 0; }
 
-    /* ----------------- VIDEO CROP ----------------- */
+    /* ---------------- VIDEO CROP ---------------- */
 
     .video-crop {
       width: 100%;
-      height: 400px; /* docelowa wysokość */
+      height: 400px;
       overflow: hidden;
       border-radius: 12px;
       border: 2px solid #333;
-      margin-top: 30px;
+      box-shadow:
+        0 0 10px rgba(255,0,0,0.15),
+        0 0 25px rgba(255,0,0,0.06);
+      margin-bottom: 40px;
     }
 
     .video-crop video {
-      width: 120%;          /* powiększenie do cropowania */
-      height: auto;
-      margin-left: -10%;    /* 10% obcięte po bokach */
-      margin-top: -5%;      /* 5% obcięte góra */
+      width: 120%;
+      margin-left: -10%;
+      margin-top: -5%;
     }
 
+    /* ---------------- CODE HIGHLIGHTS ---------------- */
 
-    /* ----------------- CODE HIGHLIGHTS ----------------- */
-
-    .code-wrapper {
-      margin-top: 40px;
-    }
+    .code-wrapper { margin-top: 10px; }
 
     .code-row {
       display: flex;
@@ -149,9 +137,7 @@
       position: relative;
     }
 
-    .code-row.reverse {
-      flex-direction: row-reverse;
-    }
+    .code-row.reverse { flex-direction: row-reverse; }
 
     .code-img {
       display: block;
@@ -171,14 +157,11 @@
       transition: 0.3s ease;
       pointer-events: none;
       border: 1px solid #333;
+      box-shadow: 0 0 12px rgba(255,0,0,0.3);
     }
 
     .code-row:hover .code-desc {
       opacity: 1;
-      transform: translateX(0px);
-    }
-
-    .code-row.reverse:hover .code-desc {
       transform: translateX(0px);
     }
 
@@ -198,22 +181,18 @@
 
 <!-- HERO -->
 <div class="hero-header">
-  <div class="hero-overlay"></div>
-
-  <!-- PODMIEŃ TEN PLIK NA SWÓJ (z repo) -->
   <img src="images/soror.png" class="hero-img" alt="Soror header">
 
-  <div class="hero-title">
-    SOROR
+  <div class="hero-title-block">
+    <div class="hero-title">SOROR</div>
     <div class="subtitle">Boss Rush</div>
   </div>
 </div>
 
-
 <div class="container">
 
   <!-- ABOUT -->
-  <div class="about-box">
+  <div class="box">
     <h2>About the Project</h2>
     <p>
       Soror is a passion-driven <strong>boss rush</strong> created as part of my bachelor's thesis.
@@ -223,34 +202,30 @@
     </p>
   </div>
 
-
   <!-- VIDEO WITH CROP -->
   <div class="video-crop">
     <video src="videos/sororvideo.mp4" controls></video>
   </div>
 
-
   <!-- CODE HIGHLIGHTS -->
-  <h2 style="margin-top: 40px;">Code Highlights</h2>
+  <div class="box">
+    <h2>Code Highlights</h2>
+  </div>
 
   <div class="code-wrapper">
 
-    <!-- Image 1 -->
     <div class="code-row">
       <img src="images/capsuledetection.png" class="code-img">
       <div class="code-desc">
         Sub-stepped melee collision: the sword’s movement is sampled multiple
-        times per frame using capsule checks to avoid tunneling and guarantee
-        precise hit detection even at fast swing speeds.
+        times per frame using capsule checks to guarantee precise hit detection.
       </div>
     </div>
 
-    <!-- Image 2 -->
     <div class="code-row reverse">
       <img src="images/blending.png" class="code-img">
       <div class="code-desc">
-        Adaptive rotation blending: accelerated anticipation turning blended
-        into slower tracking during the strike window for clearer telegraphs.
+        Adaptive rotation blending for readable attack telegraphs and smooth timing transitions.
       </div>
     </div>
 
@@ -264,4 +239,3 @@
 
 </body>
 </html>
-
