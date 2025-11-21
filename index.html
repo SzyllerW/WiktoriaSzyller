@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Wiktoria Szyller – Unity Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Unity Developer – gameplay programming, clean mechanics, and polished game feel.">
 
   <style>
     :root {
@@ -41,19 +42,14 @@
       padding: 20px;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-    }
-
-    h2 { font-size: 28px; margin: 0 0 12px; }
-    h3 { font-size: 20px; margin: 20px 0 8px; }
+    h1 { margin: 0; font-size: 40px; font-weight: 800; letter-spacing: 0.03em; }
+    h2 { margin: 0 0 12px; font-size: 28px; }
+    h3 { margin: 20px 0 8px; font-size: 20px; }
 
     a { color: var(--text); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    /* HEADER */
     .header-content {
       display: flex;
       justify-content: space-between;
@@ -80,67 +76,48 @@
 
     .hello-code {
       display: inline-block;
-      background: #3b3b3b;
+      background:#3b3b3b;
       color: #f9fafb;
       padding: 10px 16px;
       border-radius: 8px;
-      font-family: Consolas, monospace;
+      font-family: "Consolas", "Fira Code", monospace;
       font-size: 16px;
       margin-bottom: 14px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
 
-    /* SKILLS → one per line */
+    /* SKILLS – pionowa lista z punktami */
     .skills-list {
       list-style: none;
       padding-left: 0;
-      margin-top: 14px;
-      line-height: 1.7;
-      font-size: 16px;
+      line-height: 1.6;
     }
 
-    /* PROJECTS (kafelki) */
-    .featured-projects { margin-top: 30px; }
+    .skills-list li { margin-bottom: 4px; }
 
-    .featured-list {
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-    }
+    /* FEATURED PROJECTS */
+    .featured-projects { margin-top: 20px; }
+    .featured-list { display: flex; flex-direction: column; gap: 20px; }
 
     .project-card {
       background: var(--card);
-      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 18px;
+      border-radius: 16px;
       border: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      box-shadow: var(--shadow);
-      transition: 0.3s ease;
-      margin-left: -120px;
-      margin-right: -120px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: box-shadow 0.25s ease;
     }
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 35px rgba(0,0,0,0.18);
-    }
+    .project-card:hover { box-shadow: 0 8px 22px rgba(0,0,0,0.15); }
 
     .project-thumb img {
       width: 100%;
       border-radius: 12px;
-    }
-
-    /* EXPERIENCE */
-    .experience-section {
-      margin-top: 60px;
-    }
-
-    .experience-list li {
-      margin-bottom: 6px;
+      object-fit: cover;
     }
 
     /* CONTACT */
@@ -165,23 +142,13 @@
       padding: 12px 22px;
       background: #3b3b3b;
       color: white;
-      border-radius: 8px;
       text-decoration: none;
+      border-radius: 8px;
       font-weight: 600;
-      border: 1px solid #2a2a2a;
       transition: 0.2s ease;
     }
 
-    .github-btn:hover {
-      background: #4b4b4b;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 20px;
-      font-size: 13px;
-    }
+    .github-btn:hover { background: #4c4c4c; }
 
   </style>
 </head>
@@ -202,7 +169,6 @@
   </div>
 </header>
 
-
 <main class="container">
 
   <!-- HERO -->
@@ -210,25 +176,23 @@
     <div class="hello-code">Debug.Log("Hello World!");</div>
 
     <p class="hero-text">
-      I'm a Unity developer focused on gameplay programming, clean mechanics and polished game feel.
-      Experienced with academic game-dev training, studio practice and collaborative prototype development.
+      I'm a Unity developer focused on gameplay programming, clean mechanics, and polished game feel.
+      Experienced with academic game-dev training, studio practice, and collaborative prototype development.
     </p>
 
     <h3>Skills</h3>
-
     <ul class="skills-list">
       <li>• Unity</li>
       <li>• C#</li>
       <li>• C++</li>
-      <li>• Git / GitHub</li>
+      <li>• GitHub</li>
       <li>• Fork</li>
-      <li>• Visual Studio / VS Code</li>
+      <li>• Visual Studio Code</li>
       <li>• Miro</li>
       <li>• Trello</li>
       <li>• SQL (Basics)</li>
     </ul>
   </section>
-
 
   <!-- PROJECTS -->
   <section class="featured-projects" id="projects">
@@ -236,30 +200,27 @@
 
     <div class="featured-list">
 
-      <a href="soror.html" class="project-card">
-        <div class="project-thumb">
-          <img src="images/soror.png" alt="Soror">
-        </div>
+      <!-- LEFT -->
+      <a href="soror.html" class="project-card" style="margin-left:-40px;">
+        <div class="project-thumb"><img src="images/soror.png"></div>
         <div>
           <h3>Soror</h3>
           <p>Boss-rush action game with advanced boss AI and parry-based combat.</p>
         </div>
       </a>
 
-      <a href="#" class="project-card">
+      <!-- RIGHT -->
+      <a href="#" class="project-card" style="margin-right:-40px;">
         <div>
           <h3>Zoonauts</h3>
           <p>2D platformer starring animal astronauts with unique abilities.</p>
         </div>
-        <div class="project-thumb">
-          <img src="images/zoonatus.png" alt="Zoonauts">
-        </div>
+        <div class="project-thumb"><img src="images/zoonatus.png"></div>
       </a>
 
-      <a href="#" class="project-card">
-        <div class="project-thumb">
-          <img src="images/spacetaker.png" alt="Spacetaker">
-        </div>
+      <!-- LEFT -->
+      <a href="#" class="project-card" style="margin-left:-40px;">
+        <div class="project-thumb"><img src="images/spacetaker.png"></div>
         <div>
           <h3>Spacetaker</h3>
           <p>Multiplayer prototype focused on cooperative ship defence.</p>
@@ -269,44 +230,22 @@
     </div>
   </section>
 
-
-  <!-- EXPERIENCE -->
-  <section class="experience-section">
-    <h2>Experience</h2>
-
-    <h3>Simplicity Games — Unity Developer Intern</h3>
-
-    <ul class="experience-list">
-      <li>Developed gameplay features and internal Unity tools.</li>
-      <li>Implemented mechanics, UI logic and performance optimizations.</li>
-      <li>Tested and debugged systems for <em>Farm Renovator</em> across Steam branches.</li>
-      <li>Collaborated with designers and programmers to verify fixes.</li>
-      <li>Worked daily with Git, task boards and studio pipelines.</li>
-    </ul>
-  </section>
-
-
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-box">
-
       <h2>Contact</h2>
 
       <p><strong>Wiktoria Szyller</strong></p>
       <p>📞 +48 517 243 415</p>
       <p>✉️ <a href="mailto:szyllerwiktoria@gmail.com">szyllerwiktoria@gmail.com</a></p>
 
-      <a href="https://github.com/SzyllerW" target="_blank" class="github-btn">
-        View GitHub →
-      </a>
-
+      <a href="https://github.com/SzyllerW" class="github-btn" target="_blank">View GitHub →</a>
     </div>
   </section>
 
 </main>
 
-
-<footer>
+<footer style="text-align:center;padding:20px;color:#555;">
   © 2025 Wiktoria Szyller – All rights reserved.
 </footer>
 
