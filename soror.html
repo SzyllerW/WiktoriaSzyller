@@ -36,19 +36,10 @@
       padding: 40px 60px;
       display: flex;
       align-items: center;
-      gap: 40px;
+      justify-content: space-between;
       background: #000;
       border-bottom: 2px solid #333;
-      box-shadow: 0 0 30px rgba(255,0,0,0.2);
-    }
-
-    .hero-img {
-      height: 220px;
-      width: auto;
-      border: 4px solid black;
-      box-shadow: 0 0 45px rgba(255,0,0,0.45);
-      border-radius: 6px;
-      object-fit: contain;
+      box-shadow: 0 0 30px rgba(255,0,0,0.25);
     }
 
     .hero-title-block {
@@ -77,6 +68,15 @@
         0 0 14px rgba(255,0,0,0.3);
     }
 
+    .hero-img {
+      height: 220px;
+      width: auto;
+      border: 4px solid black;
+      box-shadow: 0 0 45px rgba(255,0,0,0.45);
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
     /* ---------------- CONTENT ---------------- */
 
     .container {
@@ -91,18 +91,16 @@
       border-radius: 12px;
       border: 1px solid #444;
       line-height: 1.6;
-      box-shadow:
-        0 0 10px rgba(255,0,0,0.15),
-        0 0 25px rgba(255,0,0,0.06);
       margin-bottom: 40px;
-      transition: transform .2s;
     }
 
-    .box:hover {
-      transform: translateY(-3px);
+    .red-title {
+      color: #ff3b3b;
+      text-shadow:
+        0 0 6px rgba(255,0,0,0.6),
+        0 0 12px rgba(255,0,0,0.4);
+      margin-top: 0;
     }
-
-    .box h2 { margin-top: 0; }
 
     /* ---------------- VIDEO CROP ---------------- */
 
@@ -112,9 +110,6 @@
       overflow: hidden;
       border-radius: 12px;
       border: 2px solid #333;
-      box-shadow:
-        0 0 10px rgba(255,0,0,0.15),
-        0 0 25px rgba(255,0,0,0.06);
       margin-bottom: 40px;
     }
 
@@ -177,23 +172,23 @@
 
 <body>
 
-<a href="../index.html" class="back">← Back to Portfolio</a>
+<a href="https://szyllerw.github.io/WiktoriaSzyller/" class="back">← Back to Portfolio</a>
 
 <!-- HERO -->
 <div class="hero-header">
-  <img src="images/soror.png" class="hero-img" alt="Soror header">
-
   <div class="hero-title-block">
     <div class="hero-title">SOROR</div>
     <div class="subtitle">Boss Rush</div>
   </div>
+
+  <img src="images/soror.png" class="hero-img" alt="Soror header">
 </div>
 
 <div class="container">
 
   <!-- ABOUT -->
   <div class="box">
-    <h2>About the Project</h2>
+    <h2 class="red-title">About the Project</h2>
     <p>
       Soror is a passion-driven <strong>boss rush</strong> created as part of my bachelor's thesis.
       Developed by a 4-person team, where I serve as the <strong>AI & gameplay programmer</strong>.
@@ -207,11 +202,12 @@
     <video src="videos/sororvideo.mp4" controls></video>
   </div>
 
-  <!-- CODE HIGHLIGHTS -->
+  <!-- CODE HIGHLIGHTS TITLE -->
   <div class="box">
-    <h2>Code Highlights</h2>
+    <h2 class="red-title">Code Highlights</h2>
   </div>
 
+  <!-- CODE IMAGES -->
   <div class="code-wrapper">
 
     <div class="code-row">
