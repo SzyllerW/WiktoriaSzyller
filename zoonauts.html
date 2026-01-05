@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoonauts – Puzzle Platformer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg-dark: #1b1b1b;
+      --card: #2b2b2b;
+      --text: #f0f0f0;
+      --subtle: #c7c7c7;
+      --accent: #6ee7b7; /* delikatny akcent – pasuje do puzzle */
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a.back {
+      color: var(--subtle);
+      text-decoration: none;
+      display: inline-block;
+      padding: 20px 30px;
+      font-size: 16px;
+    }
+
+    /* HERO */
+    .hero-header {
+      width: 100%;
+      padding: 60px 0;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      background: #000;
+      border-bottom: 2px solid #333;
+      box-shadow: 0 0 25px rgba(110,231,183,0.25);
+    }
+
+    .hero-title {
+      font-size: 52px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #fff;
+      text-shadow:
+        0 0 12px rgba(110,231,183,0.6),
+        0 0 24px rgba(110,231,183,0.4);
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #c8f7e5;
+      margin-top: 6px;
+    }
+
+    /* CONTENT */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px;
+    }
+
+    .box {
+      background: var(--card);
+      padding: 26px 30px;
+      border-radius: 14px;
+      border: 1px solid #444;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(110,231,183,0.4);
+    }
+
+    /* VIDEO */
+    .video-wrapper {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .video-wrapper video {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    /* CODE HIGHLIGHTS */
+    .code-wrapper {
+      margin-top: 20px;
+    }
+
+    .code-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .code-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .code-img {
+      border-radius: 6px;
+      display: block;
+    }
+
+    .code-desc {
+      background: #111;
+      padding: 16px 20px;
+      border-radius: 10px;
+      max-width: 280px;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: 0.3s ease;
+      pointer-events: none;
+    }
+
+    .code-row:hover .code-desc {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back to Portfolio</a>
+
+<!-- HERO -->
+<div class="hero-header">
+  <div>
+    <div class="hero-title">ZOONAUTS</div>
+    <div class="subtitle">Puzzle Platformer</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ABOUT -->
+  <div class="box">
+    <h2>About the Project</h2>
+    <p>
+      <strong>Zoonauts</strong> is a multi-level 2D puzzle platformer focused on
+      <strong>logic puzzles, time-based challenges, character switching, and planning ahead</strong>.
+      Each level requires players to analyse the environment, choose the right character,
+      and execute actions in the correct order.
+    </p>
+    <p>
+      I was responsible for <strong>programming all core gameplay systems</strong>,
+      including player characters, interactive objects, platforms, item collection,
+      and win/lose conditions.
+    </p>
+  </div>
+
+  <!-- VIDEO (optional) -->
+  <div class="video-wrapper">
+    <!-- Replace src when you add a video -->
+    <video src="videos/zoonauts_video.mp4" controls></video>
+  </div>
+
+  <!-- CODE HIGHLIGHTS -->
+  <h2>Code Highlights</h2>
+
+  <div class="code-wrapper">
+
+    <div class="code-row">
+      <!-- Replace with your screenshot -->
+      <img src="images/zoonauts_logic.png" class="code-img" alt="Logic system">
+      <div class="code-desc">
+        Modular puzzle logic system handling timers, triggers, and win conditions.
+        Designed to support multi-step solutions and level-specific rules.
+      </div>
+    </div>
+
+    <div class="code-row reverse">
+      <!-- Replace with your screenshot -->
+      <img src="images/zoonauts_characters.png" class="code-img" alt="Character switching">
+      <div class="code-desc">
+        Character switching system allowing each character to have unique abilities,
+        shared interactions, and consistent state handling across levels.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Wiktoria Szyller
+</footer>
+
+</body>
+</html>
