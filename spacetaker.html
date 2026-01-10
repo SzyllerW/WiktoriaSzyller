@@ -4,32 +4,214 @@
   <meta charset="UTF-8">
   <title>Spacetaker – Multiplayer Prototype</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg-dark: #0b0f1a;
+      --card: #151a2e;
+      --text: #e5e7eb;
+      --subtle: #9ca3af;
+      --accent: #60a5fa; /* kosmiczny niebieski */
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+
+      /* kosmiczne tło */
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 1px, transparent 1px),
+        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.06) 1px, transparent 1px),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.05) 1px, transparent 1px),
+        #0b0f1a;
+      background-size: 120px 120px;
+    }
+
+    a.back {
+      color: var(--subtle);
+      text-decoration: none;
+      display: inline-block;
+      padding: 20px 30px;
+      font-size: 16px;
+    }
+
+    /* HERO */
+    .hero-header {
+      width: 100%;
+      padding: 70px 0;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, #000 0%, #0b0f1a 100%);
+      border-bottom: 1px solid #1f2937;
+      box-shadow: 0 0 30px rgba(96,165,250,0.25);
+    }
+
+    .hero-title {
+      font-size: 52px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #fff;
+      text-shadow:
+        0 0 12px rgba(96,165,250,0.7),
+        0 0 28px rgba(96,165,250,0.4);
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #c7d2fe;
+      margin-top: 6px;
+    }
+
+    /* CONTENT */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px;
+    }
+
+    .box {
+      background: var(--card);
+      padding: 26px 30px;
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(96,165,250,0.4);
+    }
+
+    /* VIDEO */
+    .video-wrapper {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .video-wrapper video {
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+    }
+
+    /* CODE HIGHLIGHTS */
+    .code-wrapper {
+      margin-top: 20px;
+    }
+
+    .code-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .code-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .code-img {
+      border-radius: 6px;
+      display: block;
+      border: 1px solid #1f2937;
+    }
+
+    .code-desc {
+      background: #020617;
+      padding: 16px 20px;
+      border-radius: 10px;
+      max-width: 280px;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: 0.3s ease;
+      pointer-events: none;
+      box-shadow: 0 0 20px rgba(96,165,250,0.15);
+    }
+
+    .code-row:hover .code-desc {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+  </style>
 </head>
 
 <body>
 
-<a href="index.html">← Back to Portfolio</a>
+<a href="index.html" class="back">← Back to Portfolio</a>
 
-<h1>Spacetaker</h1>
-<p><strong>Multiplayer Prototype · Unity</strong></p>
+<!-- HERO -->
+<div class="hero-header">
+  <div>
+    <div class="hero-title">SPACETAKER</div>
+    <div class="subtitle">Multiplayer Prototype</div>
+  </div>
+</div>
 
-<h2>About the Project</h2>
-<p>
-Spacetaker is a multiplayer prototype focused on cooperative gameplay,
-shared objectives, and synchronized game states between players.
-</p>
+<div class="container">
 
-<h2>Video</h2>
-<!-- optional -->
-<!-- <video src="videos/spacetaker.mp4" controls></video> -->
+  <!-- ABOUT -->
+  <div class="box">
+    <h2>About the Project</h2>
+    <p>
+      <strong>Spacetaker</strong> is a multiplayer prototype focused on
+      <strong>cooperative gameplay, shared objectives, and synchronized game states</strong>.
+      Players must coordinate actions, manage space-based threats, and react to dynamic events together.
+    </p>
+    <p>
+      I worked on <strong>core gameplay programming</strong>, implementing player systems,
+      interaction logic, win/lose conditions, and foundational multiplayer-ready mechanics.
+      The project was designed as a flexible prototype for further expansion.
+    </p>
+  </div>
 
-<h2>Gameplay & Code Highlights</h2>
-<ul>
-  <li>Multiplayer-ready gameplay logic</li>
-  <li>Player interaction and control systems</li>
-  <li>Game state and win/lose condition handling</li>
-  <li>Prototyping and system iteration</li>
-</ul>
+  <!-- VIDEO -->
+  <div class="video-wrapper">
+    <!-- Add video later if needed -->
+    <!-- <video src="videos/spacetaker_video.mp4" controls></video> -->
+  </div>
+
+  <!-- CODE HIGHLIGHTS -->
+  <h2>Code Highlights</h2>
+
+  <div class="code-wrapper">
+
+    <div class="code-row">
+      <img src="images/spacetaker_states.png" class="code-img" alt="Game state logic">
+      <div class="code-desc">
+        Centralized game state system handling multiplayer flow,
+        shared objectives, and synchronized win/lose conditions.
+      </div>
+    </div>
+
+    <div class="code-row reverse">
+      <img src="images/spacetaker_interaction.png" class="code-img" alt="Player interaction">
+      <div class="code-desc">
+        Modular interaction system allowing players to cooperate,
+        trigger events, and affect shared gameplay elements.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Wiktoria Szyller
+</footer>
 
 </body>
 </html>
